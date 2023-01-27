@@ -1,0 +1,25 @@
+Text-SlideShow HTML/JAVASCRIPT/CSS 
+
+https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_slideshow_auto 
+
+Website Layout Footer
+https://www.w3schools.com/css/tryit.asp?filename=trycss_website_layout_footer 
+
+CSS Website Layout
+https://www.w3schools.com/css/css_website_layout.asp 
+
+https://www.javaguides.net/2021/07/spring-boot-tutorial-build-employee-management-project.html
+
+Color Hex Site
+https://www.color-hex.com/#
+
+Website Color Format:
+Header: background-image: linear-gradient(to right, #020024, #00d4ff);
+Navigation Bar: background-color: #bfbfbf;
+Footer: background-color: grey;
+
+
+Slides Colors:
+style="background-color: #3f6086"
+style="background-color: #4c637e"
+style="background-color: #667990"
