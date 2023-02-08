@@ -9,13 +9,13 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan("module-service")
 public class EmployeeManagementSystemApplication extends SpringBootServletInitializer {
-	
 	@Override protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(EmployeeManagementSystemApplication.class);
-    }
-
+		return builder.sources(EmployeeManagementSystemApplication.class);
+	}
+	
 	public static void main(String[] args) {
 		SpringApplication.run(EmployeeManagementSystemApplication.class, args);
+		System.out.println("Test Run");
 	}
 
 }
