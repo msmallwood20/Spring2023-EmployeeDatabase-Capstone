@@ -13,7 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import edu.sru.walters.EmployeeManagementSystem.dto.UserRegistrationDto;
 import edu.sru.walters.EmployeeManagementSystem.models.Role;
-import edu.sru.walters.EmployeeManagementSystem.models.User;
+import edu.sru.walters.EmployeeManagementSystem.models.Users;
 import edu.sru.walters.EmployeeManagementSystem.repository.UserRepository;
 
 public class IUserService implements UserService{
@@ -29,22 +29,22 @@ private UserRepository userRepository;
 	}
 
 	@Override
-	public User save(UserRegistrationDto registrationDto) {
-		User user = new User(registrationDto.getFirstName(), 
+	public Users save(UserRegistrationDto registrationDto) {
+		Users users = new Users(registrationDto.getFirstName(), 
 				registrationDto.getLastName(), registrationDto.getEmail(),
 				passwordEncoder.encode(registrationDto.getPassword()), Arrays.asList(new Role("ROLE_USER")));
 		
-		return userRepository.save(user);
+		return userRepository.save(users);
 	}
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 	
-		User user = userRepository.findByEmail(username);
-		if(user == null) {
+		Users users = userRepository.findByEmail(username);
+		if(users == null) {
 			throw new UsernameNotFoundException("Invalid username or password.");
 		}
-		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), mapRolesToAuthorities(user.getRoles()));		
+		return new org.springframework.security.core.userdetails.User(users.getEmail(), users.getPassword(), mapRolesToAuthorities(users.getRoles()));		
 	}
 	
 	private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){

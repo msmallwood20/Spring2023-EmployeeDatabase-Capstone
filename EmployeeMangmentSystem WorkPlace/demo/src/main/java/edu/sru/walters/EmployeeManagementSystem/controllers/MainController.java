@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MainController {
-		@RequestMapping({"/","/HomePage"})
+		@GetMapping({"/","/HomePage"})
 		public String home() {
 			return "HomePage";
 		}
 		
-		@RequestMapping({"/LoginPage"})
+		@GetMapping({"/LoginPage"})
 		public String login()
 		{
 			return "LoginPage";
