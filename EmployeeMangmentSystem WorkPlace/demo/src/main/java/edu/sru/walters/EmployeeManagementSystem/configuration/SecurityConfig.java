@@ -13,6 +13,8 @@ import org.springframework.security.config.ldap.LdapBindAuthenticationManagerFac
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.ldap.userdetails.PersonContextMapper;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
 import static org.springframework.security.config.Customizer.withDefaults;
 import edu.sru.walters.EmployeeManagementSystem.service.UserService;
 
@@ -62,5 +64,4 @@ public class SecurityConfig {
         .httpBasic(withDefaults());
     return http.build();
 	}
-
 }
