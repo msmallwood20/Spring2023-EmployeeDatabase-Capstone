@@ -16,14 +16,13 @@ import edu.sru.walters.EmployeeManagementSystem.models.Employee;
 import edu.sru.walters.EmployeeManagementSystem.service.EmployeeService;
 
 @Controller
-
 public class EmployeeController {
 	
 	@Autowired
 	private EmployeeService employeeService;
 	
 	// display list of employees
-	@GetMapping("/")
+	@GetMapping("/employee")
 	public String viewHomePage(Model model) {
 		return findPaginated(1, "firstName", "asc", model);		
 	}
