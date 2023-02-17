@@ -1,0 +1,81 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--Refrences to CSS-->
+    <link href="css/loginPage.css" type="text/css" rel="stylesheet">
+    
+    </head>
+        <header>
+        GAZEBO HQ
+        </header>
+
+    <body>
+        <!--Login form Div-->
+      <form class="LoginCont" method="post">
+        <div class="Login">
+            <label for="uname"><b>UserName</b></label>
+            <input type="text" placeholder="Enter UserName" name="uname" required/>
+            <br>
+            <br>
+            <label for="psw"><b>Password</b></label>
+            <input type="text" placeholder="Enter Password" name="psw" required/>
+            <br>
+        </div>
+        <br>
+        <div class="Selection">
+            <button type="submit">Login</button>
+                <button type="button" class="cancelbtn">Cancel</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember Me
+            </label>
+            </div>
+            <br>
+            <div class="Create/Edit">
+              <a href="registration.html" th:href="@{/registration}">Register</a>
+              <a herf="forgetpassword">Forget Password?</a>
+            </div>
+    </form>
+
+    <!--Refrences to JavaScript-->
+    <script src=""></script>
+
+            <!--Footer About Nav-->
+            <footer>
+              <div class="row">
+                <div class="column">
+                  <h3 id="Head">Contact Us</h3>
+                  <ul style="list-style-type:none;">
+                    <li class="Aboutpoint">Email- HRcontact@gmail.com</li>
+                    <li class="Aboutpoint">Phone - (724)488-2023</li>
+                    <li class="Aboutpoint">Get Support - Chat Now</li>
+                  </ul>
+                </div>
+                <div class="column">
+                  <h3 id="Head">What We Offer</h3>
+                  <ul style="list-style-type:none;">
+                  <li class="Aboutpoint">PayRoll</li>
+                  <li class="Aboutpoint">Admin Permissions</li>
+                </ul>
+                </div>
+                <div class="column">
+                  <h3 id="Head">Resources</h3>
+                  <ul style="list-style-type:none;">
+                  <li class="Aboutpoint">User Manual</li>
+                  <li class="Aboutpoint">Tutorials</li>
+                </ul>
+                </div>
+                <div class="column">
+                  <h3 id="Head">About Us</h3>
+                  <ul style="list-style-type:none;">
+                  <li class="Aboutpoint">Our Engineers</li>
+                  <li class="Aboutpoint">Our Company</li>
+                </ul>
+                </div>
+              </div>
+          </footer>
+    </body>
+</html>

@@ -10,7 +10,7 @@ header {
 }
 /*Set Background Image*/
 body {
-  background-image: url("./Images/GazeboFar.jpg");
+  background-image: url("/Images/GazeboFar.jpg");
   background-size:cover;
 }
 
@@ -28,6 +28,7 @@ body {
 /*Aligns list in horizontal line*/
 .login-Nav{
     display: inline;
+    list-style-type: none;
     padding: 15px;
 }
 
