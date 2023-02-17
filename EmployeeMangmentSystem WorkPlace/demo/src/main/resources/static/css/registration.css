@@ -1,0 +1,71 @@
+header {
+    background-color: #090979;
+    background-image: linear-gradient(to right, #020024, #00d4ff);
+    text-align: right;
+    padding: 20px;
+    margin-bottom: 15px;
+    font-size: 30px;
+    font-weight: 200;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  /*Set Background Image*/
+  body {
+    background-image: url("./Images/GazeboFar.jpg");
+    background-size:cover;
+  }
+
+  /*Set Login Form*/
+    .RegistrationCont{
+        margin: auto;
+        position: center;
+        text-align: center;
+        border-style: solid;
+        margin-top: 200px;
+        border-radius: 1px;
+        background-color: #667990cb;
+        height: 160px;
+        width: 350px;
+        padding: 16px;
+    }
+
+
+  /*Footers/About*/
+  .column {
+    float:left;
+    width: 25%;
+  }
+  .row:after{
+    text-align: center;
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  #Head{
+    text-align: center;
+    text-indent: 40px;
+    color: #201b88; 
+  }
+  
+  .Aboutpoint{
+    text-align: center;
+    padding: 2px;
+  }
+  
+  .form-group{
+    margin-bottom:15px;
+    text-align: center;
+  }
+
+  footer{
+    position: fixed;
+    background-color: #8f8f8f;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    width: 99.5%;
+    border: 2px black;
+    border-radius: 5px;
+    margin: 5px;
+  }

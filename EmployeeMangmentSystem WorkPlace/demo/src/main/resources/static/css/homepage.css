@@ -28,6 +28,7 @@ body {
 /*Aligns list in horizontal line*/
 .login-Nav{
     display: inline;
+    list-style-type: none;
     padding: 15px;
 }
 

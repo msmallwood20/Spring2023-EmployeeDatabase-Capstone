@@ -1,12 +1,12 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title>Login</title>
+    <title>Registration</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!--Refrences to CSS-->
-    <link href="css/loginPage.css" type="text/css" rel="stylesheet">
+    <link href="registration.css" type="text/css" rel="stylesheet">
     
     </head>
         <header>
@@ -14,30 +14,40 @@
         </header>
 
     <body>
-        <!--Login form Div-->
-      <form class="LoginCont" method="post">
-        <div class="Login">
-            <label for="uname"><b>UserName</b></label>
-            <input type="text" placeholder="Enter UserName" name="uname" required/>
-            <br>
-            <br>
-            <label for="psw"><b>Password</b></label>
-            <input type="text" placeholder="Enter Password" name="psw" required/>
-            <br>
+      
+        <!--Registration Form Div-->
+      <form class="RegistrationCont" th:action="@{/registration}" method="post" th:object="${user}">
+        <!--Register First Name-->
+        <div class="form-group">
+            <label class="control-label" for="firstName"> First Name </label>
+            <input id="firstName" class="form-control" th:field="*{firstName}"
+                required autofocus="autofocus" />
         </div>
-        <br>
-        <div class="Selection">
-            <button type="submit">Login</button>
-                <button type="button" class="cancelbtn">Cancel</button>
-            <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember Me
-            </label>
-            </div>
-            <br>
-            <div class="Create/Edit">
-              <a href="registration.html" th:href="@{/registration}">Register</a>
-              <a herf="forgetpassword">Forget Password?</a>
-            </div>
+        <!--Register Last Name-->
+        <div class="form-group">
+            <label class="control-label" for="lastName"> Last Name </label>
+            <input id="lastName" class="form-control" th:field="*{lastName}"
+                required autofocus="autofocus" />
+        </div>
+        <!--Register Email-->
+        <div class="form-group">
+            <label class="control-label" for="email"> Email </label>
+            <input id="email" class="form-control" th:field="*{email}"
+                required autofocus="autofocus" />
+        </div>
+        <!--Register Password-->
+        <div class="form-group">
+            <label class="control-label" for="password"> Password </label>
+            <input id="password" class="form-control" th:field="*{password}"
+                required autofocus="autofocus" />
+        </div>
+        <!--Submit Register-->
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Register</button>
+            <span>Already registered? <a href="LoginPage.html" th:href="@{/loginpage}">Login
+                    here</a></span>
+        </div>
+        <!--Register EmployeeID (Takes FN,LN, & 010-increment by 10s)-->
     </form>
 
     <!--Refrences to JavaScript-->
