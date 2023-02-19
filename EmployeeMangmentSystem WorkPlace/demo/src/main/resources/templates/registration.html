@@ -14,41 +14,14 @@
         </header>
 
     <body>
-      
         <!--Registration Form Div-->
-      <form class="RegistrationCont" th:action="@{/registration}" method="post" th:object="${user}">
-        <!--Register First Name-->
-        <div class="form-group">
-            <label class="control-label" for="firstName"> First Name </label>
-            <input id="firstName" class="form-control" th:field="*{firstName}"
-                required autofocus="autofocus" />
-        </div>
-        <!--Register Last Name-->
-        <div class="form-group">
-            <label class="control-label" for="lastName"> Last Name </label>
-            <input id="lastName" class="form-control" th:field="*{lastName}"
-                required autofocus="autofocus" />
-        </div>
-        <!--Register Email-->
-        <div class="form-group">
-            <label class="control-label" for="email"> Email </label>
-            <input id="email" class="form-control" th:field="*{email}"
-                required autofocus="autofocus" />
-        </div>
-        <!--Register Password-->
-        <div class="form-group">
-            <label class="control-label" for="password"> Password </label>
-            <input id="password" class="form-control" th:field="*{password}"
-                required autofocus="autofocus" />
-        </div>
         <!--Submit Register-->
         <div class="form-group">
             <button type="submit" class="btn btn-success">Register</button>
-            <span>Already registered? <a th:href="">Login
+            <span>Already registered? <a th:href="@{/loginpage}">Login
                     here</a></span>
         </div>
-        <!--Register EmployeeID (Takes FN,LN, & 010-increment by 10s)-->
-    </form>
+
 
     <!--Refrences to JavaScript-->
     <script src=""></script>

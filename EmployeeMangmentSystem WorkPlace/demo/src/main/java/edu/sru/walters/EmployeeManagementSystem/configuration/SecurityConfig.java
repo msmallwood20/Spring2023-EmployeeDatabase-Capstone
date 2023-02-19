@@ -41,7 +41,7 @@ public class SecurityConfig //extends WebSecurityConfiguration
     	
 	    	http
 			.authorizeHttpRequests((requests) -> requests
-				.requestMatchers("/", "/index").permitAll()
+				.requestMatchers("/", "/index", "/loginpage","/registration").permitAll()
 				.anyRequest().authenticated()
 			)
 			.formLogin((form) -> form

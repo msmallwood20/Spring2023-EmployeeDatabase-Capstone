@@ -8,7 +8,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication (exclude = {SecurityAutoConfiguration.class})
-@ComponentScan("module-service")
+@ComponentScan(basePackages= {"edu.sru.walters.EmployeeManagementSystem.controllers"})
 public class EmployeeManagementSystemApplication extends SpringBootServletInitializer {
 	@Override protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
 		return builder.sources(EmployeeManagementSystemApplication.class);
