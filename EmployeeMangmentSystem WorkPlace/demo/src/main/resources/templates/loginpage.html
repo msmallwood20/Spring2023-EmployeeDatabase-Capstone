@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
   <head>
     <title>Login</title>
     <meta charset="utf-8">
@@ -10,12 +10,12 @@
     
     </head>
         <header>
-        GAZEBO HQ
+		GAZEBO HQ
         </header>
 
     <body>
         <!--Login form Div-->
-      <form class="LoginCont" method="post">
+      <form class="LoginCont" th:action="@{/loginpage}" method="post">
         <div class="Login">
             <label for="uname"><b>UserName</b></label>
             <input type="text" placeholder="Enter UserName" name="uname" required/>
@@ -27,7 +27,7 @@
         </div>
         <br>
         <div class="Selection">
-            <button type="submit">Login</button>
+            <input type="submit">Login</input>
                 <button type="button" class="cancelbtn">Cancel</button>
             <label>
                 <input type="checkbox" checked="checked" name="remember"> Remember Me
@@ -35,8 +35,8 @@
             </div>
             <br>
             <div class="Create/Edit">
-              <a href="registration.html" th:href="@{/registration}">Register</a>
-              <a herf="forgetpassword">Forget Password?</a>
+              <a th:href="@{/registration}">Register</a>
+              <a>Forget Password?</a>
             </div>
     </form>
 

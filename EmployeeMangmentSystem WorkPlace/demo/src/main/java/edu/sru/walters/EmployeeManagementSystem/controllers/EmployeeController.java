@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import edu.sru.walters.EmployeeManagementSystem.models.Employee;
 import edu.sru.walters.EmployeeManagementSystem.service.EmployeeService;
 
-@Controller
+//@Controller
 public class EmployeeController {
 	
 	@Autowired
 	private EmployeeService employeeService;
-	
+	/*
 	// display list of employees
 	@GetMapping("/employee")
 	public String viewHomePage(Model model) {
@@ -83,5 +83,5 @@ public class EmployeeController {
 		model.addAttribute("listEmployees", listEmployees);
 		return "index";
 	}
-
+	*/
 }
