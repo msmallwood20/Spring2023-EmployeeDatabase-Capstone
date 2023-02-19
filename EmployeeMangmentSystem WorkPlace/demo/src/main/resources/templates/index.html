@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
     <head>
         <title>GAZEBO HQ</title>
         <link href="css/HomePage.css" type="text/css" rel="stylesheet">
@@ -11,7 +11,8 @@
         </header>
             <!--Navgation Bar for Logins-->
             <div id="NavBar" align="center" class="Navgation">
-                     <a href="LoginPage.html" th:href="@{/loginpage}">Login</a> 
+                     <a th:href="@{/loginpage}">Login</a> 
+                     <a th:href="@{/registration}">Register</a>
             </div>
     
             <!--SlideShow Container-->

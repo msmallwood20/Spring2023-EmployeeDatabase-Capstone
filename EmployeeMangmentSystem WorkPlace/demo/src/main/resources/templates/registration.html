@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
   <head>
     <title>Registration</title>
     <meta charset="utf-8">
@@ -44,7 +44,7 @@
         <!--Submit Register-->
         <div class="form-group">
             <button type="submit" class="btn btn-success">Register</button>
-            <span>Already registered? <a href="LoginPage.html" th:href="@{/loginpage}">Login
+            <span>Already registered? <a th:href="">Login
                     here</a></span>
         </div>
         <!--Register EmployeeID (Takes FN,LN, & 010-increment by 10s)-->
