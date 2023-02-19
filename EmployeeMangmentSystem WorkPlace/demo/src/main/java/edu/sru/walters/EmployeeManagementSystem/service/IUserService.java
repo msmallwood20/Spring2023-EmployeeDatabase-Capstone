@@ -44,7 +44,7 @@ private UserRepository userRepository;
 		if(user == null) {
 			throw new UsernameNotFoundException("Invalid username or password.");
 		}
-		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), mapRolesToAuthorities(user.getRoles()));		
+		return new org.springframework.security.core.userdetails.User(user.getEmailAddress(), user.getPassword(), mapRolesToAuthorities(user.getRoles()));		
 	}
 	
 	private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){

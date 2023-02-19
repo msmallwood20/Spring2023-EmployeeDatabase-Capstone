@@ -1,27 +1,39 @@
 package edu.sru.walters.EmployeeManagementSystem.models;
 
+import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "employees")
 public class Employee {
 	
 	@Id
-	@GeneratedValue(strategy =  GenerationType.IDENTITY)
-	private long id;
+	@GeneratedValue(strategy =  GenerationType.AUTO)
+	private int id;
 	
-	@Column(name = "first_name")
+	@Nonnull
 	private String firstName;
 	
-	@Column(name = "last_name")
+	@Nonnull
 	private String lastName;
 	
-	@Column(name = "email")
+	@Nonnull
 	private String email;
-	public long getId() {
+	
+	public Employee() {
+		
+	}
+	
+	public Employee(String firstName, String lastName, String email) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;	
+	}
+	
+	public int getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getFirstName() {
@@ -36,10 +48,10 @@ public class Employee {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getEmail() {
+	public String getEmailAddress() {
 		return email;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmailAddress(String emailAddress) {
+		this.email = emailAddress;
 	}
 }

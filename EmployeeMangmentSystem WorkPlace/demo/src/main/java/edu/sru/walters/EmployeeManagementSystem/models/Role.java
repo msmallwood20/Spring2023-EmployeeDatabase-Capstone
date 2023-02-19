@@ -1,14 +1,16 @@
 package edu.sru.walters.EmployeeManagementSystem.models;
 
+import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "role")
 public class Role {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	
+	@Nonnull
 	private String name;
 	
 	public Role() {
@@ -20,10 +22,10 @@ public class Role {
 		this.name = name;
 	}
 	
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getName() {

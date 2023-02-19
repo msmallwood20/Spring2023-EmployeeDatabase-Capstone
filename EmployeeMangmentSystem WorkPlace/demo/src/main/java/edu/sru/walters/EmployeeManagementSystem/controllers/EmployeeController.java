@@ -16,7 +16,6 @@ import edu.sru.walters.EmployeeManagementSystem.models.Employee;
 import edu.sru.walters.EmployeeManagementSystem.service.EmployeeService;
 
 @Controller
-
 public class EmployeeController {
 	
 	@Autowired
