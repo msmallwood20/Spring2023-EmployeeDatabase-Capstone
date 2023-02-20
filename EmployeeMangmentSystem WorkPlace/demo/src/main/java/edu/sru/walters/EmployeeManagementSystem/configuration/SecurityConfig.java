@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.ldap.core.support.BaseLdapPathContextSource;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
@@ -15,7 +16,6 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.ldap.userdetails.PersonContextMapper;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
@@ -28,13 +28,19 @@ import static org.springframework.security.config.Customizer.withDefaults;
 
 import edu.sru.walters.EmployeeManagementSystem.service.UserService;
 
-@Configuration
 @EnableWebSecurity
-public class SecurityConfig //extends WebSecurityConfiguration
+@Configuration
+public class SecurityConfig extends WebSecurityConfiguration
 {
 	//Talks to the database
     @Autowired
 	private UserService userService;
+    
+    
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
     
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
@@ -46,6 +52,7 @@ public class SecurityConfig //extends WebSecurityConfiguration
 			)
 			.formLogin((form) -> form
 				.loginPage("/loginpage")
+				.defaultSuccessUrl("/Dashboard", true)
 				.permitAll()
 			)
 			.logout((logout) -> logout.permitAll());
@@ -53,6 +60,20 @@ public class SecurityConfig //extends WebSecurityConfiguration
 		return http.build();
     			
     }
+/*
+    @Bean
+    public DaoAuthenticationProvider daoAuthenticationProvider() {
+        DaoAuthenticationProvider provider =
+                new DaoAuthenticationProvider();
+        provider.setPasswordEncoder(passwordEncoder());
+        provider.setUserDetailsService(userService);
+        return provider;
+    }
+ 
+    protected void configure(AuthenticationManagerBuilder provider) throws Exception {
+    	provider.authenticationProvider(authenticationProvider());
+    }
+    
     
     @Bean
 	public UserDetailsService userDetailsService() {
@@ -65,7 +86,7 @@ public class SecurityConfig //extends WebSecurityConfiguration
 		return new InMemoryUserDetailsManager(user);
 	}
     
-    /*
+    
 	@Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
@@ -74,10 +95,6 @@ public class SecurityConfig //extends WebSecurityConfiguration
         return auth;
     }
 	
-	public PasswordEncoder passwordEncoder() {
-        PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        return encoder;
-    }
 	@Bean
     public EmbeddedLdapServerContextSourceFactoryBean contextSourceFactoryBean() {
         EmbeddedLdapServerContextSourceFactoryBean contextSourceFactoryBean =
@@ -94,16 +111,5 @@ public class SecurityConfig //extends WebSecurityConfiguration
         factory.setUserDetailsContextMapper(new PersonContextMapper());
         return factory.createAuthenticationManager();
     }
-    
-	@Bean
-	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		 http.authorizeRequests()
-         .anyRequest()
-         .authenticated()
-         .and()
-         .httpBasic();
-     return http.build();
-	}
-	*/
-	
+*/
 }

@@ -9,17 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import edu.sru.walters.EmployeeManagementSystem.service.UserService;
 import edu.sru.walters.EmployeeManagementSystem.dto.UserRegistrationDto;
 
-//@Controller
-//@RequestMapping("/registration")
+@Controller
+@RequestMapping("/registration")
 public class UserRegistrationController {
+
 	/*
 	private UserService userService;
-
 	public UserRegistrationController(UserService userService) {
 		super();
 		this.userService = userService;
 	}
-
 	@ModelAttribute("user")
     public UserRegistrationDto userRegistrationDto() {
         return new UserRegistrationDto();
