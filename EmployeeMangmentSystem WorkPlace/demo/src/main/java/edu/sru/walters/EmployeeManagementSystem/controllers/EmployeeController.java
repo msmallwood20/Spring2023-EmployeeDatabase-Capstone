@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import edu.sru.walters.EmployeeManagementSystem.models.Employee;
 import edu.sru.walters.EmployeeManagementSystem.service.EmployeeService;
 
-//@Controller
+@Controller
 public class EmployeeController {
 	
 	@Autowired

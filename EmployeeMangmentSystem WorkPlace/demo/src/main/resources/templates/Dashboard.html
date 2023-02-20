@@ -1,0 +1,42 @@
+<!Doctype html>
+<html xmlns:th="https://www.thymeleaf.org"> 
+    <head>
+        <title>Dashboard</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="wdith=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link href="css/dashboard.css" type="text/css" rel="stylesheet">
+    </head>
+        <header>
+            GAZEBO HQ
+        </header>
+    <body>
+        <div id="PageHeader">
+            <p>Dashboard</p>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Menu</button>
+            <div class="dropdown-content">
+                <a href="#">Dashboard</a>
+                <a href="#">Time Sheet</a>
+                <a href="#">Manage Users</a>
+                <a href="#">Inbox</a>
+                <a href="#">File Server</a>
+                <a href="#">System Log</a>
+                <a href="#">Payroll</a>
+                <a href="#">Account Settings</a>
+            </div>
+        </div>
+       <div id="TodaysDate", style="float:right;">
+        <p>Today is:</p>
+        <p id="date"></p>
+      <script>
+            n =  new Date();
+            y = n.getFullYear();
+            m = n.getMonth() + 1;
+            d = n.getDate();
+            document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+        </script>
+       </div>
+    </body>
+</html>

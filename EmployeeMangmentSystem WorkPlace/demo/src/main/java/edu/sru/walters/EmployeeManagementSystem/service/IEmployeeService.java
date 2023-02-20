@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import edu.sru.walters.EmployeeManagementSystem.models.Employee;
 import edu.sru.walters.EmployeeManagementSystem.repository.EmployeeRepository;
 
+@Service
 public class IEmployeeService implements EmployeeService {
 	
 	@Autowired
