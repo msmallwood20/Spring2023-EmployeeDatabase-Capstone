@@ -14,14 +14,29 @@
         </header>
 
     <body>
-        <h2>--Registration Form Div--></h2>
+		<form action="/registration" method="post">
+			<div class="container">
+					<h2>--Registration Form Div--></h2>
+					<P>Please fill in the form below to create a account.</P>
+					<hr>
+			
+			<label for="username">
+            <b>Username</b>
+            </label> 
+            <input type="text" placeholder="Enter Username" name="username" id="username" required> 
+
+            <label for="password"><b>Password</b></label> 
+            <input type="password" placeholder="Enter Password" name="password" id="password" required> 
+
+            <button type="submit" class="registerbtn">Register</button> 
+					
+			</div>
 		
-        
+		</form>
+
         <!--Submit Register-->
         <div class="form-group">
-            <button type="submit" class="btn btn-success">Register</button>
-            <span>Already registered? <a th:href="@{/loginpage}">Login
-                    here</a></span>
+            <span>Already registered? <a th:href="@{/loginpage}">Login here</a></span>
         </div>
 
 

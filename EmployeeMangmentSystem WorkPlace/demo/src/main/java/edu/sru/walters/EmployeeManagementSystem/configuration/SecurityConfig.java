@@ -60,6 +60,23 @@ public class SecurityConfig extends WebSecurityConfiguration
 		return http.build();
     			
     }
+    
+    @Bean
+	public UserDetailsService userDetailsService() {
+    	UserDetails user = User.withDefaultPasswordEncoder()
+				.username("user")
+				.password("password")
+				.roles("USER")
+				.build();
+    	UserDetails admin = User.withDefaultPasswordEncoder()
+    			.username("admin")
+    			.password("password")
+    			.roles("USER", "ADMIN")
+    			.build();
+    			
+
+		return new InMemoryUserDetailsManager(user);
+	}
 /*
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider() {
@@ -73,19 +90,7 @@ public class SecurityConfig extends WebSecurityConfiguration
     protected void configure(AuthenticationManagerBuilder provider) throws Exception {
     	provider.authenticationProvider(authenticationProvider());
     }
-    
-    
-    @Bean
-	public UserDetailsService userDetailsService() {
-    	UserDetails user = User.withDefaultPasswordEncoder()
-				.username("user")
-				.password("password")
-				.roles("USER")
-				.build();
-
-		return new InMemoryUserDetailsManager(user);
-	}
-    
+     
     
 	@Bean
     public DaoAuthenticationProvider authenticationProvider() {

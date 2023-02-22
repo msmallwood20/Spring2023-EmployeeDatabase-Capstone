@@ -28,10 +28,10 @@ public class MainController {
 			return "registration";
 		}
 		
-		@GetMapping(value="/dashboard")
+		
+		@GetMapping(value="/Dashboard")
 		public String dashboard()
 		{
-			return "dashboard";
+			return "Dashboard";
 		}
-		
 }
