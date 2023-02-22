@@ -38,5 +38,12 @@
             document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
         </script>
        </div>
+       
+       <div id="Login Out">
+       <form th:action="@{/logout}" method="post"> 
+         <input type="submit" value="Sign Out"/> 
+         </form>
+       </div>
+       
     </body>
 </html>
