@@ -27,4 +27,11 @@ public class MainController {
 		{
 			return "registration";
 		}
+		
+		@GetMapping(value="/dashboard")
+		public String dashboard()
+		{
+			return "dashboard";
+		}
+		
 }
