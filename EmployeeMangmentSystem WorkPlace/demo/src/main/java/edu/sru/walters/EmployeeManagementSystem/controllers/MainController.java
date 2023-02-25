@@ -32,9 +32,15 @@ public class MainController {
 		}
 		
 		
-		@GetMapping(value="/Dashboard")
+		@GetMapping(value="/dashboard")
 		public String dashboard()
 		{
-			return "Dashboard";
+			return "dashboard";
+		}
+		
+		@GetMapping(value="/accountsettings")
+		public String accountsettings()
+		{
+			return "accountsettings";
 		}
 }
