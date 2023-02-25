@@ -1,5 +1,6 @@
 <!Doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
     <head>
         <title>Dashboard</title>
         <meta charset="utf-8">
@@ -24,7 +25,7 @@
                 <a href="#">File Server</a>
                 <a href="#">System Log</a>
                 <a href="#">Payroll</a>
-                <a href="#">Account Settings</a>
+                <a href="C:\Users\pauls\Desktop\School\CPSC-488\Workspace\Spring-2023-Employee-Management\EmployeeMangmentSystem WorkPlace\demo\src\main\resources\templates\AccountSettings.html">Account Settings</a>
             </div>
         </div>
        <div id="TodaysDate", style="float:right;">
@@ -37,6 +38,12 @@
             d = n.getDate();
             document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
         </script>
+        </div>
+       <div id="ClockedIn">
+       <p> Clocked In: (N/A Yet)</p>
+       </div>
+        <div id="HoursThisWeek">
+        <p> Hours This Week: (N/A Yet)</p>
        </div>
        
        <div id="Login Out">

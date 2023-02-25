@@ -31,6 +31,7 @@ public class MainController {
 			return "registration";
 		}
 		
+		
 		@GetMapping(value="/Dashboard")
 		public String dashboard()
 		{
