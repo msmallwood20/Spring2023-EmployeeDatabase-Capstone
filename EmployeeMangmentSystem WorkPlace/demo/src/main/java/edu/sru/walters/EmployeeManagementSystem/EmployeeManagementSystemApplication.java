@@ -9,11 +9,12 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication (exclude = {SecurityAutoConfiguration.class})
 @ComponentScan(basePackages= {"edu.sru.walters.EmployeeManagementSystem.controllers", "edu.sru.walters.EmployeeManagementSystem.service"})
-public class EmployeeManagementSystemApplication extends SpringBootServletInitializer {
+public class EmployeeManagementSystemApplication extends SpringBootServletInitializer
+{
 	@Override protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
 		return builder.sources(EmployeeManagementSystemApplication.class);
 	}
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(EmployeeManagementSystemApplication.class, args);
 	}

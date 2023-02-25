@@ -21,8 +21,10 @@ public class Users {
 	@Column(name = "last_name")
 	private String lastName;
 	
+	@Column(nullable = false, unique = true, length = 45)
 	private String email;
 	
+	@Column(nullable = false, length = 64)
 	private String password;
 	
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -35,10 +37,6 @@ public class Users {
 	
 	private Collection<Role> roles;
 	
-	public Users() {
-		
-	}
-	
 	public Users(String firstName, String lastName, String email, String password, Collection<Role> roles) {
 		super();
 		this.firstName = firstName;
@@ -47,6 +45,11 @@ public class Users {
 		this.password = password;
 		this.roles = roles;
 	}
+	
+	public Users() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Long getId() {
 		return id;
 	}

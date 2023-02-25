@@ -10,11 +10,17 @@
     
     </head>
         <header>
-		GAZEBO HQ
+		<a th:href="@{/}">GAZEBO HQ</a>
         </header>
 
     <body>
         <!--Login form Div-->
+        <div th:if="${param.error}">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
       <form class="LoginCont" th:action="@{/loginpage}" method="post">
         <div class="Login">
             <label for="uname"><b>UserName</b></label>

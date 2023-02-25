@@ -3,56 +3,42 @@ package edu.sru.walters.EmployeeManagementSystem.configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.ldap.core.support.BaseLdapPathContextSource;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
-import org.springframework.security.config.ldap.EmbeddedLdapServerContextSourceFactoryBean;
-import org.springframework.security.config.ldap.LdapBindAuthenticationManagerFactory;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.ldap.userdetails.PersonContextMapper;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
-import static org.springframework.security.config.Customizer.withDefaults;
-
-import edu.sru.walters.EmployeeManagementSystem.service.UserService;
-
-@EnableWebSecurity
+//@EnableWebSecurity
 @Configuration
-public class SecurityConfig extends WebSecurityConfiguration
+public class SecurityConfig// extends WebSecurityConfiguration
 {
 	//Talks to the database
     @Autowired
-	private UserService userService;
+	//private UserService userService;
     
     
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-    
+	
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-    	
 	    	http
 			.authorizeHttpRequests((requests) -> requests
+//Specify that URLs are allowed by anyone. With Authenticate(Login), any links not in here auto require authenticate
 				.requestMatchers("/", "/index", "/loginpage","/registration").permitAll()
 				.anyRequest().authenticated()
 			)
+			//Login From reference 
 			.formLogin((form) -> form
+			//This indicates that we have a custom login page, instead of using the default login that comes with Spring Security
 				.loginPage("/loginpage")
-				.defaultSuccessUrl("/Dashboard", true)
+				
 				.permitAll()
 			)
 			.logout((logout) -> logout.permitAll());
@@ -60,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfiguration
 		return http.build();
     			
     }
-    
+//For Testing/Debugging, we are using User.withDefaultPasswordEncoder(), to create temp login in accounts     
     @Bean
 	public UserDetailsService userDetailsService() {
     	UserDetails user = User.withDefaultPasswordEncoder()
@@ -77,44 +63,4 @@ public class SecurityConfig extends WebSecurityConfiguration
 
 		return new InMemoryUserDetailsManager(user);
 	}
-/*
-    @Bean
-    public DaoAuthenticationProvider daoAuthenticationProvider() {
-        DaoAuthenticationProvider provider =
-                new DaoAuthenticationProvider();
-        provider.setPasswordEncoder(passwordEncoder());
-        provider.setUserDetailsService(userService);
-        return provider;
-    }
- 
-    protected void configure(AuthenticationManagerBuilder provider) throws Exception {
-    	provider.authenticationProvider(authenticationProvider());
-    }
-     
-    
-	@Bean
-    public DaoAuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
-        auth.setUserDetailsService(userService);
-        auth.setPasswordEncoder(passwordEncoder());
-        return auth;
-    }
-	
-	@Bean
-    public EmbeddedLdapServerContextSourceFactoryBean contextSourceFactoryBean() {
-        EmbeddedLdapServerContextSourceFactoryBean contextSourceFactoryBean =
-            EmbeddedLdapServerContextSourceFactoryBean.fromEmbeddedLdapServer();
-        contextSourceFactoryBean.setPort(0);
-        return contextSourceFactoryBean;
-    }
-
-    @Bean
-    AuthenticationManager ldapAuthenticationManager(BaseLdapPathContextSource contextSource) {
-        LdapBindAuthenticationManagerFactory factory = 
-            new LdapBindAuthenticationManagerFactory(contextSource);
-        factory.setUserDnPatterns("uid={0},ou=people");
-        factory.setUserDetailsContextMapper(new PersonContextMapper());
-        return factory.createAuthenticationManager();
-    }
-*/
 }
