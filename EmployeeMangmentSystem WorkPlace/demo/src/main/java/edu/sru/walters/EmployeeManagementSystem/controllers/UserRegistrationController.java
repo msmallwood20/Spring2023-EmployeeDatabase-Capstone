@@ -1,4 +1,4 @@
-package edu.sru.walters.EmployeeManagementSystem.controllers;
+/*package edu.sru.walters.EmployeeManagementSystem.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import edu.sru.walters.EmployeeManagementSystem.service.UserService;
-import edu.sru.walters.EmployeeManagementSystem.dto.UserRegistrationDto;
 
 @Controller
 @RequestMapping("/registration")
@@ -34,5 +33,5 @@ public class UserRegistrationController {
 		userService.save(registrationDto);
 		return "redirect:/registration?success";
 	}
-	*/
-}
+	
+}*/
