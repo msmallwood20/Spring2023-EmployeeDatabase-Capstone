@@ -3,8 +3,10 @@ package edu.sru.walters.EmployeeManagementSystem.configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.ldap.EmbeddedLdapServerContextSourceFactoryBean;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,13 +14,15 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
-//@EnableWebSecurity
+import edu.sru.walters.EmployeeManagementSystem.service.UserService;
+
+@EnableWebSecurity
 @Configuration
-public class SecurityConfig// extends WebSecurityConfiguration
+public class SecurityConfig
 {
 	//Talks to the database
     @Autowired
-	//private UserService userService;
+	private UserService userService;
     
     
     @Bean
@@ -38,7 +42,7 @@ public class SecurityConfig// extends WebSecurityConfiguration
 			.formLogin((form) -> form
 			//This indicates that we have a custom login page, instead of using the default login that comes with Spring Security
 				.loginPage("/loginpage")
-				
+				.defaultSuccessUrl("/dashboard").permitAll()
 				.permitAll()
 			)
 			.logout((logout) -> logout.permitAll());
@@ -63,4 +67,20 @@ public class SecurityConfig// extends WebSecurityConfiguration
 
 		return new InMemoryUserDetailsManager(user);
 	}
+    
+	@Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
+        auth.setUserDetailsService(userService);
+        auth.setPasswordEncoder(passwordEncoder());
+        return auth;
+    }
+	
+	@Bean
+    public EmbeddedLdapServerContextSourceFactoryBean contextSourceFactoryBean() {
+        EmbeddedLdapServerContextSourceFactoryBean contextSourceFactoryBean =
+            EmbeddedLdapServerContextSourceFactoryBean.fromEmbeddedLdapServer();
+        contextSourceFactoryBean.setPort(0);
+        return contextSourceFactoryBean;
+    }
 }

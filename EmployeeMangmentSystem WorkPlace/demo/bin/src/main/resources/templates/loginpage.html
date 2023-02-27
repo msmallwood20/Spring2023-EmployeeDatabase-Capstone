@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
   <head>
     <title>Login</title>
@@ -10,11 +10,17 @@
     
     </head>
         <header>
-		GAZEBO HQ
+		<a th:href="@{/}">GAZEBO HQ</a>
         </header>
 
     <body>
         <!--Login form Div-->
+        <div th:if="${param.error}">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
       <form class="LoginCont" th:action="@{/loginpage}" method="post">
         <div class="Login">
             <label for="uname"><b>UserName</b></label>
@@ -27,7 +33,7 @@
         </div>
         <br>
         <div class="Selection">
-            <input type="submit">Login</input>
+            <input type="submit" value="Sign In" />
                 <button type="button" class="cancelbtn">Cancel</button>
             <label>
                 <input type="checkbox" checked="checked" name="remember"> Remember Me
