@@ -29,32 +29,4 @@ header {
     width: 135px;
     border: none;
     margin-top: 5px;
-    float: left;
-  }
-
-  #PersonalInfo {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 200%;
-    padding-left: 10px;
-  }
-
-  #forms {
-    padding-top: 30px;
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 100%;
-   
-    
-  }
-
-  #infobox {
-    border-style: solid;
-    margin-top: 100px;
-    padding-left: 10px;
-    float: left;
-    padding-right: 50px ;
-    margin-left: 15px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 100%;
-    
   }
