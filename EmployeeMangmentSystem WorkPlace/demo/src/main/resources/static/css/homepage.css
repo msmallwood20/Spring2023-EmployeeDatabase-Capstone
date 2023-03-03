@@ -12,6 +12,7 @@ header {
 body {
   background-image: url("/Images/GazeboFar.jpg");
   background-size:cover;
+  min-height: 100vh;
 }
 
 /*Navigation Bar-holds the Login Text-Links*/
@@ -62,8 +63,9 @@ body {
 }
 
 footer{
-  position: fixed;
+  position: sticky;
   background-color: #8f8f8f;
+  top: 100%;
   text-align: center;
   left: 0;
   bottom: 0;

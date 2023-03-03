@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authorization.AuthenticatedAuthorizationManager;
 import org.springframework.security.authorization.AuthorizationManager;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import edu.sru.walters.EmployeeManagementSystem.configuration.SecurityConfig;
 import edu.sru.walters.EmployeeManagementSystem.models.Users;
 import edu.sru.walters.EmployeeManagementSystem.repository.UserRepository;
 
@@ -42,8 +44,9 @@ public class MainController {
 		@GetMapping(value="/loginpage")
 				public String login()
 		{
-			return "loginpage";
-		}
+	        return "loginpage";
+	    }
+
 		
 		@GetMapping(value="/registration")
 		public String register(Model model)
