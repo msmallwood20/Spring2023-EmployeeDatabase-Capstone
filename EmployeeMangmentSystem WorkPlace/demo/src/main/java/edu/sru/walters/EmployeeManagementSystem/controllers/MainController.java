@@ -68,6 +68,18 @@ public class MainController {
 			return "accountsettings";
 		}
 		
+		@GetMapping(value="/timesheet")
+		public String timesheet()
+		{
+			return "timesheet";
+		}
+
+		@GetMapping(value="/manageusers")
+		public String manageusers()
+		{
+			return "manageusers";
+		}
+		
 		@PostMapping("/process_registration")
 		public String processRegistration(Users users) {
 			
