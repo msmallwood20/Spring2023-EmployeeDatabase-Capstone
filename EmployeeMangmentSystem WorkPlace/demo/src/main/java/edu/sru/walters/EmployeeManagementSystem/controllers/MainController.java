@@ -80,6 +80,24 @@ public class MainController {
 			return "manageusers";
 		}
 		
+		@GetMapping(value="/fileserver")
+		public String fileserver()
+		{
+			return "fileserver";
+		}
+		
+		@GetMapping(value="/inbox")
+		public String inbox()
+		{
+			return "inbox";
+		}
+		
+		@GetMapping(value="/systemlog")
+		public String systemlog()
+		{
+			return "systemlog";
+		}
+		
 		@PostMapping("/process_registration")
 		public String processRegistration(Users users) {
 			
