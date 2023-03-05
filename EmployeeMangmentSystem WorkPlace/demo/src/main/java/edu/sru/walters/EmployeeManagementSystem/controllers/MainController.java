@@ -98,6 +98,12 @@ public class MainController {
 			return "systemlog";
 		}
 		
+		@GetMapping(value="/payroll")
+		public String payroll()
+		{
+			return "payroll";
+		}
+		
 		@PostMapping("/process_registration")
 		public String processRegistration(Users users) {
 			
