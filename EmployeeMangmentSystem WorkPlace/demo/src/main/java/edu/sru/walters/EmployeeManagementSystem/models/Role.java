@@ -1,5 +1,6 @@
 package edu.sru.walters.EmployeeManagementSystem.models;
 
+
 import jakarta.persistence.*;
 
 @Entity
