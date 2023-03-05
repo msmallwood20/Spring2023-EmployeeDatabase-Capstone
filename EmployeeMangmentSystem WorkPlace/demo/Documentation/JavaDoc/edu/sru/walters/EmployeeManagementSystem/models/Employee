@@ -1,0 +1,116 @@
+   
+
+package edu.sru.walters.EmployeeManagementSystem.models;
+
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "employees")
+
+ /**
+ * The class Employee
+ */ 
+public class Employee {
+	
+	@Id
+	@GeneratedValue(strategy =  GenerationType.IDENTITY)
+	private long id;
+	
+	@Column(name = "first_name")
+	private String firstName;
+	
+	@Column(name = "last_name")
+	private String lastName;
+	
+	@Column(name = "email")
+	private String email;
+
+/** 
+ *
+ * Gets the identifier
+ *
+ * @return the identifier
+ */
+	public long getId() { 
+
+		return id;
+	}
+
+/** 
+ *
+ * Sets the identifier
+ *
+ * @param id  the id
+ */
+	public void setId(long id) { 
+
+		this.id = id;
+	}
+
+/** 
+ *
+ * Gets the first name
+ *
+ * @return the first name
+ */
+	public String getFirstName() { 
+
+		return firstName;
+	}
+
+/** 
+ *
+ * Sets the first name
+ *
+ * @param firstName  the first name
+ */
+	public void setFirstName(String firstName) { 
+
+		this.firstName = firstName;
+	}
+
+/** 
+ *
+ * Gets the last name
+ *
+ * @return the last name
+ */
+	public String getLastName() { 
+
+		return lastName;
+	}
+
+/** 
+ *
+ * Sets the last name
+ *
+ * @param lastName  the last name
+ */
+	public void setLastName(String lastName) { 
+
+		this.lastName = lastName;
+	}
+
+/** 
+ *
+ * Gets the email
+ *
+ * @return the email
+ */
+	public String getEmail() { 
+
+		return email;
+	}
+
+/** 
+ *
+ * Sets the email
+ *
+ * @param email  the email
+ */
+	public void setEmail(String email) { 
+
+		this.email = email;
+	}
+}
