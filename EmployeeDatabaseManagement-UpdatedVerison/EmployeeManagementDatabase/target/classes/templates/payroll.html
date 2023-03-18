@@ -32,7 +32,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         </div>
         <!--Employee Info-->
         <div class="w3-container">
-          <h2>Alex Smith</h2>
+          <h2><span th:remove="tag" sec:authentication="name">thymeleaf</span></h2>
           <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Designer</p>
           <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Slippery Rock, PA</p>
           <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>ex@mail.com</p>
