@@ -1,4 +1,4 @@
-package edu.group3.EmployeeManagement.models;
+/*package edu.group3.EmployeeManagement.models;
 
 
 import jakarta.persistence.*;
@@ -33,4 +33,4 @@ public class Role {
 	public void setName(String name) {
 		this.name = name;
 	}
-}
+}*/
