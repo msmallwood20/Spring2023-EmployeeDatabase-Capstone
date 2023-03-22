@@ -34,27 +34,27 @@ public class LoginController {
 	@GetMapping(value="/registration")
 	public String register(Model model)
 	{
-		model.addAttribute("users", new User());
+		model.addAttribute("user", new User());
 		return "registration";
 	}
 	
 	@PostMapping("/registrationsucces")
-	public String processRegistration(User users) {
+	public String processRegistration(User user) {
 		
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		String encodedPassword = passwordEncoder.encode(users.getPassword());
-		users.setPassword(encodedPassword);
-		userRepository.save(users);
+		String encodedPassword = passwordEncoder.encode(user.getPassword());
+		user.setPassword(encodedPassword);
+		userRepository.save(user);
 	
 		return "registrationsucces";
 	}
 	
-	@GetMapping("/users")
+	@GetMapping("/user")
 	public String listUsers(Model model) {
 		List<User> listUsers = userRepository.findAll();
 		model.addAttribute("listUsers", listUsers);
 		
-		return "users";
+		return "user";
 	}
 	
 }*/

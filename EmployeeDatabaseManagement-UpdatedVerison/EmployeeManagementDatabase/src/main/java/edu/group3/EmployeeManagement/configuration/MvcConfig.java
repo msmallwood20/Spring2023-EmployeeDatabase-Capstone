@@ -1,4 +1,4 @@
-/*package edu.group3.EmployeeManagement.configuration;
+package edu.group3.EmployeeManagement.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -16,4 +16,4 @@ public class MvcConfig implements WebMvcConfigurer {
 		registry.addViewController("/registration").setViewName("registration");
 		registry.addViewController("/registrationsucces").setViewName("registrationsucces");
 	}
-}*/
+}
