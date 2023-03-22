@@ -1,46 +1,100 @@
 package edu.group3.EmployeeManagement.models;
 
 
-import jakarta.persistence.*;
+import java.util.Date;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Entity
-@Table(name = "employees")
-public class Employee {
+@Data
+@EqualsAndHashCode(callSuper=false)
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+public class Employee extends Person {
+		
+	@ManyToOne
+	@JoinColumn(name="employeeTypeId", insertable=false, updatable=false)
 	
-	@Id
-	@GeneratedValue(strategy =  GenerationType.IDENTITY)
-	private long id;
+	private EmployeeType employeeType;
 	
-	@Column(name = "first_name")
-	private String firstName;
+	private Integer employeeTypeId;
 	
-	@Column(name = "last_name")
-	private String lastName;
+	private String photo;
 	
-	@Column(name = "email")
-	private String email;
-	public long getId() {
-		return id;
+	private String username;
+	
+	@ManyToOne
+	@JoinColumn(name="jobTitleId", insertable=false, updatable=false)
+	
+	private JobTitle jobTitle;
+	
+	private Integer jobTitleId;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")	
+	private Date hireDate;
+
+	public EmployeeType getEmployeeType() {
+		return employeeType;
 	}
-	public void setId(long id) {
-		this.id = id;
+
+	public void setEmployeeType(EmployeeType employeeType) {
+		this.employeeType = employeeType;
 	}
-	public String getFirstName() {
-		return firstName;
+
+	public Integer getEmployeeTypeId() {
+		return employeeTypeId;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+
+	public void setEmployeeTypeId(Integer employeeTypeId) {
+		this.employeeTypeId = employeeTypeId;
 	}
-	public String getLastName() {
-		return lastName;
+
+	public String getPhoto() {
+		return photo;
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
-	public String getEmail() {
-		return email;
+
+	public String getUsername() {
+		return username;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+
+	public void setUserName(String username) {
+		this.username = username;
+	}
+
+	public JobTitle getJobTitle() {
+		return jobTitle;
+	}
+
+	public void setJobTitle(JobTitle jobTitle) {
+		this.jobTitle = jobTitle;
+	}
+
+	public int getJobTitleId() {
+		return jobTitleId;
+	}
+
+	public void setJobTitleId(Integer jobTitleId) {
+		this.jobTitleId = jobTitleId;
+	}
+
+	public Date getHireDate() {
+		return hireDate;
+	}
+
+	public void setHireDate(Date hireDate) {
+		this.hireDate = hireDate;
 	}
 }

@@ -1,4 +1,4 @@
-package edu.group3.EmployeeManagement.controllers;
+/*package edu.group3.EmployeeManagement.controllers;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import edu.group3.EmployeeManagement.models.Users;
+import edu.group3.EmployeeManagement.models.User;
 import edu.group3.EmployeeManagement.repository.UserRepository;
 
 import org.springframework.ui.Model;
@@ -34,12 +34,12 @@ public class LoginController {
 	@GetMapping(value="/registration")
 	public String register(Model model)
 	{
-		model.addAttribute("users", new Users());
+		model.addAttribute("users", new User());
 		return "registration";
 	}
 	
 	@PostMapping("/registrationsucces")
-	public String processRegistration(Users users) {
+	public String processRegistration(User users) {
 		
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String encodedPassword = passwordEncoder.encode(users.getPassword());
@@ -51,10 +51,10 @@ public class LoginController {
 	
 	@GetMapping("/users")
 	public String listUsers(Model model) {
-		List<Users> listUsers = userRepository.findAll();
+		List<User> listUsers = userRepository.findAll();
 		model.addAttribute("listUsers", listUsers);
 		
 		return "users";
 	}
 	
-}
+}*/
