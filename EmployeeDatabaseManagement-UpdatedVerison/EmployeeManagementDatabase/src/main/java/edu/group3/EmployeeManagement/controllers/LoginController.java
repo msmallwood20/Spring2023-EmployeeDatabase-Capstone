@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import edu.group3.EmployeeManagement.models.User;
@@ -20,8 +21,10 @@ public class LoginController {
     UserRepository userRepository;
 	
 	@GetMapping(value="/login")
-	public String login()
+	public String login(Model model)
 	{
+		User user = new User();
+		model.addAttribute("user", user);
 	return "login";
 	}
 	
