@@ -1,4 +1,4 @@
-/*package edu.group3.EmployeeManagement.controllers;
+package edu.group3.EmployeeManagement.controllers;
 
 import java.util.List;
 
@@ -57,4 +57,4 @@ public class LoginController {
 		return "user";
 	}
 	
-}*/
+}

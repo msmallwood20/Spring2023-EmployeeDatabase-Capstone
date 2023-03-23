@@ -26,7 +26,8 @@
                 <a th:href="@{/inbox}">Inbox</a>
                 <a th:href="@{/fileserver}">File Server</a>
                 <a th:href="@{/systemlog}">System Log</a>
-                <a th:href="@{/payroll}">Payroll</a>
+				<a sec:authorize="hasAuthority('ADMIN')" th:href="@{/payrollAdmin}">Payroll</a>
+                <a sec:authorize="hasAuthority('USER')" th:href="@{/payrollUser}">Payroll</a>
                 <a th:href="@{/accountsettings}">Account Settings</a>
             </div>
         </div>
