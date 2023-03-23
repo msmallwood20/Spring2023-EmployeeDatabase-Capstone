@@ -14,13 +14,13 @@
         </header>
 
     <body>
-		<form th:action="@{/registrationsucces}" th:object="${users}"
+		<form th:action="@{/registrationsucces}" th:object="${user}"
             method="post" style="max-width: 600px; margin: 0 auto;">
         <div class="m-3">
             <div class="form-group row">
-                <label class="col-4 col-form-label">E-mail: </label>
+                <label class="col-4 col-form-label">UserName: </label>
                 <div class="col-8">
-                    <input type="email" th:field="*{email}" class="form-control" required />
+                    <input type="text" th:field="*{username}" class="form-control" required />
                 </div>
             </div>
              
