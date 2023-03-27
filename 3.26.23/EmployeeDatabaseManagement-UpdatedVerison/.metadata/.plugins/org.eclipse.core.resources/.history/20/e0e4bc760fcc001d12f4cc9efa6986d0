@@ -1,0 +1,9 @@
+package edu.group3.EmployeeManagement.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import edu.group3.EmployeeManagement.models.User;
+
+public interface RoleRepository extends JpaRepository<User, Integer> {
+
+}

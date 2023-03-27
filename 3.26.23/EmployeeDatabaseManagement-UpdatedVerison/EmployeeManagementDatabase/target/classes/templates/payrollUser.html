@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<head>
+  <title>Payroll User</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!--References to CSS-->
+    <link href="css/payrollUser.css" type="text/css" rel="stylesheet">
+</head>
+
+<header>
+  <a th:href="@{/}">GAZEBO HQ</a>
+</header>
+<body class="w3-light-grey">
+
+<!-- Page Container -->
+<div class="w3-content" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div class="w3-third">
+    <!--Display's Person's Image-->
+      <div class="w3-white w3-text-grey w3-card-4">
+        <div class="w3-display-container">
+          <img src="E:\CPSC 488\WebPages\static\Images\placeholder2.png" style="width:80%" alt="Avatar">
+        </div>
+        <!--Display's Employee Info-->
+        <div class="w3-container">
+          <h2>Alex Smith</h2>
+          <p><i></i>Designer</p>
+          <p><i></i>Slippery Rock, PA</p>
+          <p><i></i>ex@mail.com</p>
+          <p><i></i>122-443-5534</p>
+          <hr>
+          <div class="todashboard">
+            <a th:href="@{/dashboard}">
+                <button class="MenuButton">Back To Dashboard</button> 
+            </a>
+        </div>
+        </div>
+      </div><br>
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+     <!-- Payroll periods & Total -->
+    <div class="w3-twothird">
+    
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Regular Payroll</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Pay Period 1</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>March 11 2023 - March 24 2023</h6>
+          
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Pay Period 2</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>March 25 2023 - April 07 2023</h6>
+
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Total Payroll Cost</b></h5>
+          <h6 class="w3-text-black">$1,798.10</h6>
+      </div>
+      </div>
+
+      <div class="w3-container w3-card w3-white">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Payroll Summary</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Total Emp Wages</b></h5>
+          <p>$46,712.20</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Taxes</b></h5>
+          <p>$12,353.00</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Benefits</b></h5>
+          <p>$3,334.00</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Deduction</b></h5>
+          <p>$4,934.00</p>
+        </div>
+      </div>
+
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+</div>
+</body>
+</html>

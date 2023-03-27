@@ -1,0 +1,16 @@
+package edu.group3.EmployeeManagement.service;
+
+import java.util.Optional;
+
+import edu.group3.EmployeeManagement.dto.UserDto;
+import edu.group3.EmployeeManagement.models.User;
+
+public interface UserServices {
+
+	 	void save(User user);
+
+	    User findUserByEmail(String email);
+
+		Optional<User> findById(int id);
+	
+}

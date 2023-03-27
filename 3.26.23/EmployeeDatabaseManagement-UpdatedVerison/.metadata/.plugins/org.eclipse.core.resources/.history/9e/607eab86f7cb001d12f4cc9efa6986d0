@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>TestingListUsers</title>
+</head>
+    <header>
+      <a th:href="@{/}">GAZEBO HQ</a>
+    </header>
+<body>
+
+	<h3>List Users</h3>
+	
+	<table>
+	
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>UserName</th>
+			</tr>
+		</thead>
+	
+		<tbody>
+			<tr th:each="user: ${user}">
+				<td th:text="${user.firstName}" />
+				<td th:text="${user.lastName}" />
+				<td th:text="${user.username}" />
+			</tr>
+		</tbody>
+	</table>
+	
+</body>
+</html>

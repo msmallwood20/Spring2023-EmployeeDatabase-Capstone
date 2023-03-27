@@ -1,0 +1,13 @@
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.url=jdbc:mysql://localhost:3306/demo?createDatabaseIfNotExist=true
+
+spring.datasource.username=root
+spring.datasource.password=2023CPSC!!
+
+spring.jpa.properties.hibernate.format_sql=true
+spring.main.allow-bean-definition-overriding=true
+
+spring.thymeleaf.cache=false
+spring.thymeleaf.prefix=classpath:templates/
+
+*Use your Own MySQL workbench login for spring.datasource. info*--Don't copy this is just a Note

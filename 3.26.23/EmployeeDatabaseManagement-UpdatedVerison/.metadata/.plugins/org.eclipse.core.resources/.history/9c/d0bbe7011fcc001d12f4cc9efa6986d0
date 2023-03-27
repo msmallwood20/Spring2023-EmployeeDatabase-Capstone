@@ -1,0 +1,25 @@
+package edu.group3.EmployeeManagement.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+public class UserDto {
+
+	public Object getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getEmail() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public CharSequence getPassword() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

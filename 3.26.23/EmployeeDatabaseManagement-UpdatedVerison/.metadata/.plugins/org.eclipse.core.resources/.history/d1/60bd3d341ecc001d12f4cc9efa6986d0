@@ -1,0 +1,5 @@
+package edu.group3.EmployeeManagement.service;
+
+public class UserServiceImpl {
+
+}

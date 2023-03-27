@@ -1,0 +1,42 @@
+package edu.group3.EmployeeManagement.service;
+
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import edu.group3.EmployeeManagement.dto.UserDto;
+import edu.group3.EmployeeManagement.models.Role;
+import edu.group3.EmployeeManagement.models.User;
+import edu.group3.EmployeeManagement.repository.RoleRepository;
+import edu.group3.EmployeeManagement.repository.UserRepository;
+
+@Service
+public class UserServiceImpl{
+	
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private RoleRepository roleRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    public void saveUser(UserDto userDto) {
+        Role role = roleRepository.findByName(TbConstants.Roles.USER);
+
+        if (role == null)
+            role = roleRepository.save(new Role(TbConstants.Roles.USER));
+
+        User user = new User(userDto.getName(), userDto.getEmail(), passwordEncoder.encode(userDto.getPassword()),
+                Arrays.asList(role));
+        userRepository.save(user);
+    }
+
+    public User findUserByEmail(String email) {
+        return userRepository.findByUsername(username);
+    }
+
+}

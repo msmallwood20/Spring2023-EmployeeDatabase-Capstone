@@ -1,0 +1,12 @@
+package edu.group3.EmployeeManagement.repository;
+
+import edu.group3.EmployeeManagement.service.Role;
+
+public class RoleRepository {
+
+	public Role findByName(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

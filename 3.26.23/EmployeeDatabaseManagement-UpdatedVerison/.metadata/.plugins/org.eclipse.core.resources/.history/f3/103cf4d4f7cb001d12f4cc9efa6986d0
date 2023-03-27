@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--Refrences to CSS-->
+    <link href="css/loginPage.css" type="text/css" rel="stylesheet">
+    
+    </head>
+        <header>
+		<a th:href="@{/}">GAZEBO HQ</a>
+        </header>
+
+    <body>
+        <!--Login form Div-->
+        <div th:if="${param.error}">
+            Invalid username and/or password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
+        
+      <form th:action="@{/loginsuccess}" method="post" th:object="${user}">
+        <div class="Login">
+
+            <label for="uname"><b>Username</b></label>
+            <input type="username" placeholder="Enter username" th:field="${user.username}" required/>
+            <br>
+            <br>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" th:field="${user.password}" required/>
+            <br>
+        </div>
+        <br>
+        <div class="Selection">
+            <button type="submit">Sign In</button>
+                <button type="button" class="cancelbtn">Cancel</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember Me
+            </label>
+            </div>
+            <br>
+            <div class="Create/Edit">
+              <a th:href="@{/registration}">Register</a>
+              <a>Forget Password?</a>
+            </div>
+    </form>
+
+    <!--Refrences to JavaScript-->
+    <script src=""></script>
+
+    </body>
+</html>
