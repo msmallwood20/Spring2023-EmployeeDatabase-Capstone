@@ -17,18 +17,66 @@ public class MainController {
 	//These methods have the @GetMapping("***") Tag, inside of the parentheses, is the name that thymeleaf will use when calling to find that page-Explained more on the HTML pages
 		
 	//The return "***"; references directly to the web pages names that are located in the src/main/resources/templates folder
+
 				@GetMapping("/")
 				public String viewHomePage() 
 				{
 					return "index";
 				}
-
+			
 				@GetMapping(value="/dashboard")
 				public String dashboard()
 				{
 					return "dashboard";
 				}
+			
+				@GetMapping(value="/accountsettings")
+				public String accountsettings()
+				{
+					return "accountsettings";
+				}
+			
+				@GetMapping(value="/timesheet")
+				public String timesheet()
+				{
+					return "timesheet";
+				}
+			
+				@GetMapping(value="/manageusers")
+				public String manageusers()
+				{
+					return "manageusers";
+				}
+			
+				@GetMapping(value="/fileserver")
+				public String fileserver()
+				{
+					return "fileserver";
+				}
+			
+				@GetMapping(value="/inbox")
+				public String inbox()
+				{
+					return "inbox";
+				}
+			
+				@GetMapping(value="/systemlog")
+				public String systemlog()
+				{
+					return "systemlog";
+				}
+			
+				@GetMapping(value="/payrollAdmin")
+				public String payrolluser()
+				{
+					return "payrollAdmin";
+				}
 				
+				@GetMapping(value="/payrollUser")
+				public String payrolladmin()
+				{
+					return "payrollUser";
+				}
 				@GetMapping(value="/TestingListUsers")
 				public ModelAndView getAllUsers()
 				{

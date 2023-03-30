@@ -30,8 +30,6 @@ public class LoginController {
     @RequestMapping(value="/login")
 	public String login(Model model)
 	{
-		User user = new User();
-		model.addAttribute("user", user);
 	return "login";
 	}
 	
