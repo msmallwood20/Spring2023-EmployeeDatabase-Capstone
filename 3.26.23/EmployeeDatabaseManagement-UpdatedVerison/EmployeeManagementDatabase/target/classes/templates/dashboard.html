@@ -15,7 +15,7 @@
     <body>
         <div id="PageHeader">
             <p>Dashboard</p>
-        <h1 th:inline="text">Hello</h1><span th:remove="tag">User</span>!
+        <h1 th:inline="text">Hello <span th:text="${#authentication.getPrincipal().getUsername()}">User</span>!</h1>
         </div>
         <div class="dropdown">
             <button class="dropbtn">Menu</button>
@@ -26,8 +26,8 @@
                 <a th:href="@{/inbox}">Inbox</a>
                 <a th:href="@{/fileserver}">File Server</a>
                 <a th:href="@{/systemlog}">System Log</a>
-                <a th:href="@{/payrollAdmin}">Payroll</a>
-                <a th:href="@{/payrollUser}">Payroll</a>
+                <a th:href="@{/payrollAdmin}">Payroll Admin</a>
+                <a th:href="@{/payrollUser}">Payroll User</a>
                	<!-- Will be used later to add in Roles -->
 				<!-- <a sec:authorize="hasRole('ADMIN')" th:href="@{/payrollAdmin}">Payroll</a>
                 <a sec:authorize="hasRole('USER')" th:href="@{/payrollUser}">Payroll</a> -->
