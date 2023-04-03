@@ -15,7 +15,7 @@
     <body>
         <div id="PageHeader">
             <p>Dashboard</p>
-        <h1 th:inline="text">Hello <span th:text="${#authentication.getPrincipal().getUsername()}">User</span>!</h1>
+			<h1 th:inline="text"> Hello Welcome <span th:text="${#authentication.getPrincipal().getFirstName}">User</span>!</h1>
         </div>
         <div class="dropdown">
             <button class="dropbtn">Menu</button>
