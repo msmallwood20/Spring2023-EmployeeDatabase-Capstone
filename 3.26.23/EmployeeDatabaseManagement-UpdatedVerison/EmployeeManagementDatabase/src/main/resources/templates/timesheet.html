@@ -24,7 +24,10 @@
           
           <h1>Please Upload a Excel <b>.xlsx</b> file, to upload your TimeSheet.</h1>
           		<br>
-          		<h2>Drag & Drop or  to Upload a file</h2>
+				<form method="POST" action="/api/excel/upload" enctype="multipart/form-data">
+				  <input type="file" name="file">
+				  <button type="submit">Upload</button>
+				</form>
           		<br>
           		<h2>Need a blank TimeSheet? <a th:href="@{/api/excel/download}">Click Here</a> to download one.</h2>
           
