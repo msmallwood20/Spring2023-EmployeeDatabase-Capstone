@@ -7,6 +7,7 @@ import java.util.List;
 import javax.print.attribute.standard.SheetCollate;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -38,14 +39,23 @@ public class ExcelHelper {
 		      }
 
 		      int rowIdx = 1;
-		      for (Timesheets timesheet : timeSheets) {
-		        Row row = sheet.createRow(rowIdx++);
 
-		        row.createCell(0).setCellValue(timesheet.getId());
-		        row.createCell(1).setCellValue(timesheet.getTitle());
-		        row.createCell(2).setCellValue(timesheet.getDescription());
-		        row.createCell(3).setCellValue(timesheet.getType());
+		      for (Timesheets timesheet : timeSheets) {
+		    	  //Setting the heading row-0
+		        Row rowC = sheet.createRow(rowIdx++);
+
+		        
+		        //Sets into Row index 0 as Headers
+		        rowC.createCell(0).setCellValue(timesheet.getId());
+		        rowC.createCell(1).setCellValue(timesheet.getTitle());
+		        rowC.createCell(2).setCellValue(timesheet.getDescription());
+		        rowC.createCell(3).setCellValue(timesheet.getType());
+
 		      }
+		      
+		      //Add Data to the second row (index 1)
+		      Row rowD = sheet.createRow(1);
+		      rowD.createCell(0).setCellValue("Test");
 
 		      workbook.write(out);
 		      return new ByteArrayInputStream(out.toByteArray());

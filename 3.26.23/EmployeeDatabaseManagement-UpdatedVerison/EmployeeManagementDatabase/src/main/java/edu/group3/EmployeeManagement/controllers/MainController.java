@@ -43,9 +43,11 @@ public class MainController {
 				}
 			
 				@GetMapping(value="/manageusers")
-				public String manageusers()
+				public ModelAndView manageusers()
 				{
-					return "manageusers";
+					ModelAndView mavUser = new ModelAndView("TestingListUsers");
+					mavUser.addObject("user", uRepo.findAll());
+					return mavUser;
 				}
 			
 				@GetMapping(value="/fileserver")
