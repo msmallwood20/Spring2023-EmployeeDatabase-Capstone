@@ -45,7 +45,7 @@ public class MainController {
 				@GetMapping(value="/manageusers")
 				public ModelAndView manageusers()
 				{
-					ModelAndView mavUser = new ModelAndView("TestingListUsers");
+					ModelAndView mavUser = new ModelAndView("manageusers");
 					mavUser.addObject("user", uRepo.findAll());
 					return mavUser;
 				}
@@ -78,12 +78,5 @@ public class MainController {
 				public String payrolladmin()
 				{
 					return "payrollUser";
-				}
-				@GetMapping(value="/TestingListUsers")
-				public ModelAndView getAllUsers()
-				{
-					ModelAndView mav = new ModelAndView("TestingListUsers");
-					mav.addObject("user", uRepo.findAll());
-					return mav;
 				}
 }

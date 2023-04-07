@@ -20,19 +20,18 @@ import org.springframework.core.io.InputStreamResource;
 import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.web.multipart.MultipartFile;
 
-import edu.group3.EmployeeManagement.models.Timesheets;
-//This Class Creates a download excel file to be filled in-SYSTEM USED FOR TIMESHEETS
-public class ExcelHelper {
+import edu.group3.EmployeeManagement.models.User;
 
-	  public static String TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-	  static String[] HEADERs = { "Id", "Title", "Description", "Header" };
-	  static String SHEET = "TimeSheets";
+public class UserHelper {
+	public static String TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+	  static String[] HEADERs = { "Id", "FirstName", "LastName", "UserName", "Password" };
+	  static String SHEET = "User";
 	  
 	  //System to Download a excel file
-	  public static ByteArrayInputStream dataToExcel(List<Timesheets> timeSheets) {
+	  public static ByteArrayInputStream dataToUser(List<User> users) {
 
-		    try (Workbook workbook = new XSSFWorkbook(); ByteArrayOutputStream out = new ByteArrayOutputStream();) {
-		      Sheet sheet = workbook.createSheet(SHEET);
+		    try (Workbook userWorkbook = new XSSFWorkbook(); ByteArrayOutputStream out = new ByteArrayOutputStream();) {
+		      Sheet sheet = userWorkbook.createSheet(SHEET);
 
 		      // Header
 		      Row headerRow = sheet.createRow(0);
@@ -43,22 +42,26 @@ public class ExcelHelper {
 		      }
 
 		      int rowIdx = 1;
-		      for (Timesheets timesheet : timeSheets) {
+		      for (User user : users) {
 		        Row row = sheet.createRow(rowIdx++);
 		        //Columns 1-4 and through Row 0
 		    	//Order of Headers: TimeSheet ID, TimeSheet Title/Name, Staff Full Name, PayPeriod, Day, StartTime, LunchStart, LunchEnd, EndTime, TotalHoursWorked
-		        row.createCell(0).setCellValue(timesheet.getId());		        
-		        row.createCell(1).setCellValue(timesheet.getTitle());
-		        row.createCell(2).setCellValue(timesheet.getDescription());
+		        row.createCell(0).setCellValue(user.getId());		        
+		        row.createCell(1).setCellValue(user.getFirstName());
+		        row.createCell(2).setCellValue(user.getLastName());
+		        row.createCell(3).setCellValue(user.getUsername());
+		        row.createCell(4).setCellValue(user.getPassword());
 		      }
+		      
+		      /*
 		      //Columns 1-4 and through Row 1
 		      Row secondRow = sheet.createRow(1);
 		      secondRow.createCell(0).setCellValue("New Data 1");
 		      secondRow.createCell(1).setCellValue("New Data 2");
 		      secondRow.createCell(2).setCellValue("New Data 3");
 		      secondRow.createCell(3).setCellValue("New Data 4");
-		      
-		      workbook.write(out);
+		      */
+		      userWorkbook.write(out);
 		      return new ByteArrayInputStream(out.toByteArray());
 		    } catch (IOException e) {
 		      throw new RuntimeException("fail to import data to Excel file: " + e.getMessage());
@@ -74,16 +77,16 @@ public class ExcelHelper {
 		  }
 		  return true;
 	  }
-	  //Reads an InputStream, and returns a list of timesheets
-	  public static List<Timesheets> excelToData(InputStream is)
+	  //Reads an InputStream, and returns a list of User
+	  public static List<User> excelToData(InputStream is)
 	  {
 		  try {
-			Workbook workbook = new XSSFWorkbook(is);
+			Workbook userWorkbook = new XSSFWorkbook(is);
 			
-			Sheet sheet = workbook.getSheet(SHEET);
+			Sheet sheet = userWorkbook.getSheet(SHEET);
 			Iterator<Row> rows = sheet.iterator();
 			
-			List<Timesheets> timeSheets = new ArrayList<Timesheets>();
+			List<User> users = new ArrayList<User>();
 
 		      int rowNumber = 0;
 		      while (rows.hasNext()) {
@@ -97,7 +100,7 @@ public class ExcelHelper {
 		        
 		        Iterator<Cell> cellsInRow =currentRow.iterator();
 		        
-		        Timesheets timeSheet = new Timesheets();
+		        User user = new User();
 		        
 		        int cellIdx = 0;
 		        while (cellsInRow.hasNext()) {
@@ -105,17 +108,25 @@ public class ExcelHelper {
 
 		          switch (cellIdx) {
 		          case 0:
-		        	  timeSheet.setId((long) currentCell.getNumericCellValue());
+		        	  user.setId((int) currentCell.getNumericCellValue());
 		            break;
 
 		          case 1:
-		        	  timeSheet.setTitle(currentCell.getStringCellValue());
+		        	  user.setFirstName(currentCell.getStringCellValue());
 		            break;
 
 		          case 2:
-		        	  timeSheet.setDescription(currentCell.getStringCellValue());
+		        	  user.setLastName(currentCell.getStringCellValue());
 		            break;
 
+		          case 3:
+		        	  user.setUsername(currentCell.getStringCellValue());
+		            break;
+		            
+		          case 4:
+		        	  user.setPassword(currentCell.getStringCellValue());
+		            break;
+		            
 		          default:
 		            break;
 		          }
@@ -123,24 +134,15 @@ public class ExcelHelper {
 		          cellIdx++;
 		        }
 
-		        timeSheets.add(timeSheet);
+		        users.add(user);
 		      }
 
-		      workbook.close();
+		      userWorkbook.close();
 
-		      return timeSheets;
+		      return users;
 		        
 		  } catch (IOException e) {
 		      throw new RuntimeException("fail to parse Excel file: " + e.getMessage());
 		}
 	  }
 }
-
-
-
-
-
-/*
- * References:
- * https://www.codejava.net/frameworks/spring-boot/export-data-to-excel-example
- */

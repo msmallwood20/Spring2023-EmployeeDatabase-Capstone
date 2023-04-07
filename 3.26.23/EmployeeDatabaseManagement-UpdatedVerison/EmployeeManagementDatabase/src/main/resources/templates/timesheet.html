@@ -1,6 +1,6 @@
 <!Doctype html>
-<!-- <html xmlns:th="https://www.thymeleaf.org"  xmlns="http://www.w3.org/1999/xhtml"> -->
-  <html>
+<html xmlns:th="https://www.thymeleaf.org"  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head>
         <title>TimeSheets</title>
         <meta charset="utf-8">
@@ -12,6 +12,9 @@
     <div id="PageHeader">
     </div>
     <body>
+        <header>
+          GAZEBO HQ
+        </header>
       <div>
         <a th:href="@{/dashboard}">
             <button class="MenuButton">Back To Dashboard</button> 
@@ -35,4 +38,3 @@
 
     </body>
     </html>  
-<!--     https://stackoverflow.com/questions/65804050/how-to-add-two-number-using-springboot-thymeleaf -->
