@@ -50,6 +50,14 @@ public class MainController {
 					return mavUser;
 				}
 			
+				//Adding Users-Admin Access Only
+				@GetMapping("/addusers")
+				public String addUsers()
+				{
+					return "addusers";
+				}
+				
+				
 				@GetMapping(value="/fileserver")
 				public String fileserver()
 				{

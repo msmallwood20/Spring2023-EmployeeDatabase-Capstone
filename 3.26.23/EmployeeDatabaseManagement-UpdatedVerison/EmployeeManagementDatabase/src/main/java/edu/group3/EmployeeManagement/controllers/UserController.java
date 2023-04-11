@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,10 +37,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import edu.group3.EmployeeManagement.controllers.MainController;
 import edu.group3.EmployeeManagement.helper.ExcelHelper;
 import edu.group3.EmployeeManagement.messages.ResponseMessage;
 import edu.group3.EmployeeManagement.models.User;
 import edu.group3.EmployeeManagement.service.UserService;
+import jakarta.servlet.http.HttpServletResponse;
 import edu.group3.EmployeeManagement.service.CountryService;
 import edu.group3.EmployeeManagement.service.ExcelService;
 
@@ -93,8 +97,8 @@ public class UserController {
 			      .contentType(MediaType.parseMediaType("application/vnd.ms-excel"))
 			      .body(file);
 	  }
-	  
-	//Uploading a filled from timesheet page
+	  	
+	  //Upload excel sheet to database
 	  @PostMapping("/uploadUserSheet")
 	  public ResponseEntity<ResponseMessage> upload(@RequestParam("file") MultipartFile file)
 	  {

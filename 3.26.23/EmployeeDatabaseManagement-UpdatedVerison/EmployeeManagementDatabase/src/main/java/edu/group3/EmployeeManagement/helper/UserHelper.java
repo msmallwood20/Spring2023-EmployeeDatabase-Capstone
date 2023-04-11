@@ -18,13 +18,14 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbookFactory;
 import org.apache.tomcat.util.http.fileupload.ByteArrayOutputStream;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.jdbc.core.RowCallbackHandler;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.group3.EmployeeManagement.models.User;
 
 public class UserHelper {
 	public static String TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-	  static String[] HEADERs = { "Id", "FirstName", "LastName", "UserName", "Password" };
+	  static String[] HEADERs = { "Id", "FirstName", "LastName", "UserName", "Password"};
 	  static String SHEET = "User";
 	  
 	  //System to Download a excel file
@@ -45,22 +46,14 @@ public class UserHelper {
 		      for (User user : users) {
 		        Row row = sheet.createRow(rowIdx++);
 		        //Columns 1-4 and through Row 0
-		    	//Order of Headers: TimeSheet ID, TimeSheet Title/Name, Staff Full Name, PayPeriod, Day, StartTime, LunchStart, LunchEnd, EndTime, TotalHoursWorked
+		    	//Order of Headers: Id, FirstName, LastName, UserName, Paswsword
 		        row.createCell(0).setCellValue(user.getId());		        
 		        row.createCell(1).setCellValue(user.getFirstName());
 		        row.createCell(2).setCellValue(user.getLastName());
 		        row.createCell(3).setCellValue(user.getUsername());
 		        row.createCell(4).setCellValue(user.getPassword());
 		      }
-		      
-		      /*
-		      //Columns 1-4 and through Row 1
-		      Row secondRow = sheet.createRow(1);
-		      secondRow.createCell(0).setCellValue("New Data 1");
-		      secondRow.createCell(1).setCellValue("New Data 2");
-		      secondRow.createCell(2).setCellValue("New Data 3");
-		      secondRow.createCell(3).setCellValue("New Data 4");
-		      */
+
 		      userWorkbook.write(out);
 		      return new ByteArrayInputStream(out.toByteArray());
 		    } catch (IOException e) {
@@ -124,7 +117,10 @@ public class UserHelper {
 		            break;
 		            
 		          case 4:
-		        	  user.setPassword(currentCell.getStringCellValue());
+			        user.setPassword(currentCell.getStringCellValue());
+		        	BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		      		String encodedPassword = passwordEncoder.encode(user.getPassword());
+		      		user.setPassword(encodedPassword);
 		            break;
 		            
 		          default:
