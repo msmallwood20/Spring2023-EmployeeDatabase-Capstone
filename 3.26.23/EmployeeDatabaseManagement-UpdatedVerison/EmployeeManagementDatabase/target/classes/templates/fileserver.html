@@ -5,10 +5,19 @@
         <meta charset="utf-8">
         <meta name="viewport" content="wdith=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <link href="css/inbox.css" type="text/css" rel="stylesheet">
+        <link href="css/fileserver.css" type="text/css" rel="stylesheet">
     </head>
     <header>
         GAZEBO HQ
+        <div class="accountDropdown">
+            <button>
+                <img th:src="@{/Images/avatar.png}" alt="Avatar" class="avatar">
+            </button>
+                <div class="dropdown-options">
+                    <a th:href="@{/accountsettings}">Settings</a>
+                    <a href="">Log Out</a>
+               </div> 
+    </div>
     </header>
     <div id="PageHeader">
         <p>File Server</p>
