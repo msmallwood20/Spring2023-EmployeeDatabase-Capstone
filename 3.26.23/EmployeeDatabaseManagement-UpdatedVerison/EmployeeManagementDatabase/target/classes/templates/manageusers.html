@@ -1,5 +1,6 @@
 <!Doctype html>
-<html xmlns:th="https://www.thymeleaf.org"  xmlns="http://www.w3.org/1999/xhtml"> 
+<html xmlns:th="https://www.thymeleaf.org"  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"> 
     <head>
         <title>Manage Users</title>
         <meta charset="utf-8">
@@ -18,21 +19,8 @@
 <a th:href="@{/dashboard}">
     <button class="MenuButton">Back To Dashboard</button> 
 </a>
-	<p>For Admin Use Only (Will be implemented at only ADMIN-ROLES access at a later time), Admin can upload file a .xlsx file to add multiple users.</p>
-          <h1>Please Upload a Excel <b>.xlsx</b> file, to upload a list of Users.</h1>
-          		<br>
-				<form method="POST" action="/api/excel/uploadUserSheet" enctype="multipart/form-data">
-				  <input type="file" name="file">
-				  <button type="submit">Upload</button>
-				</form>
-          		<br>
-          		<h2>Need a blank TimeSheet? <a th:href="@{/api/excel/downloadUserSheet}">Click Here</a> to download one.</h2>
-          
-
 	<h3>List Users</h3>
-	
 	<table>
-	
 		<thead>
 			<tr>
 				<th>First Name</th>
