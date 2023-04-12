@@ -43,11 +43,21 @@ public class MainController {
 				}
 			
 				@GetMapping(value="/manageusers")
-				public String manageusers()
+				public ModelAndView manageusers()
 				{
-					return "manageusers";
+					ModelAndView mavUser = new ModelAndView("manageusers");
+					mavUser.addObject("user", uRepo.findAll());
+					return mavUser;
 				}
 			
+				//Adding Users-Admin Access Only
+				@GetMapping("/addusers")
+				public String addUsers()
+				{
+					return "addusers";
+				}
+				
+				
 				@GetMapping(value="/fileserver")
 				public String fileserver()
 				{
@@ -76,12 +86,5 @@ public class MainController {
 				public String payrolladmin()
 				{
 					return "payrollUser";
-				}
-				@GetMapping(value="/TestingListUsers")
-				public ModelAndView getAllUsers()
-				{
-					ModelAndView mav = new ModelAndView("TestingListUsers");
-					mav.addObject("user", uRepo.findAll());
-					return mav;
 				}
 }

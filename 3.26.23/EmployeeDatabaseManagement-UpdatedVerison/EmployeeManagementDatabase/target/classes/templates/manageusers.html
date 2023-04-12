@@ -1,5 +1,6 @@
 <!Doctype html>
-<html xmlns:th="https://www.thymeleaf.org"  xmlns="http://www.w3.org/1999/xhtml"> 
+<html xmlns:th="https://www.thymeleaf.org"  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"> 
     <head>
         <title>Manage Users</title>
         <meta charset="utf-8">
@@ -9,7 +10,17 @@
     </head>
     <header>
         GAZEBO HQ
+		<div class="accountDropdown">
+			<button>
+				<img th:src="@{/Images/avatar.png}" alt="Avatar" class="avatar">
+			</button>
+				<div class="dropdown-options">
+					<a th:href="@{/accountsettings}">Settings</a>
+					<a href="">Log Out</a>
+			   </div> 
+	</div>	
     </header>
+<body>
     <div id="PageHeader">
         <p>Manage Users</p>
     </div>
@@ -17,5 +28,24 @@
 <a th:href="@{/dashboard}">
     <button class="MenuButton">Back To Dashboard</button> 
 </a>
+	<h3>List Users</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>UserName</th>
+			</tr>
+		</thead>
+	
+		<tbody>
+			<tr th:each="user: ${user}">
+				<td th:text="${user.firstName}" />
+				<td th:text="${user.lastName}" />
+				<td th:text="${user.username}" />
+			</tr>
+		</tbody>
+	</table>
+</body>	
 </div>
 </html>    

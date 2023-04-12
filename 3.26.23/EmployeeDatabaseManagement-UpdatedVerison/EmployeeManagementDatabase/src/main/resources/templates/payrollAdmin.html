@@ -13,6 +13,15 @@
     </div>
     <header>
       <a th:href="@{/}">GAZEBO HQ</a>
+      <div class="accountDropdown">
+        <button>
+            <img th:src="@{/Images/avatar.png}" alt="Avatar" class="avatar">
+        </button>
+            <div class="dropdown-options">
+                <a th:href="@{/accountsettings}">Settings</a>
+                <a href="">Log Out</a>
+           </div> 
+</div>
     </header>
     <body>
       <div>
@@ -68,6 +77,6 @@
             </tfoot>
           </table>
         </div>
-        <script src="E:\CPSC 488\WebPages\static\js\payrollAdmin.js"></script>
+        <script src="/js/payrollAdmin.js"></script>
     </body>
     </html>  
