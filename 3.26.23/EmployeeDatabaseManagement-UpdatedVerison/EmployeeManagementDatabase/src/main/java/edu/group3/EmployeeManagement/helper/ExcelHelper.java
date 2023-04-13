@@ -45,11 +45,11 @@ public class ExcelHelper {
 		      int rowIdx = 1;
 		      for (Timesheets timesheet : timeSheets) {
 		        Row row = sheet.createRow(rowIdx++);
-		        //Columns 1-4 and through Row 0
-		    	//Order of Headers: TimeSheet ID, TimeSheet Title/Name, Staff Full Name, PayPeriod, Day, StartTime, LunchStart, LunchEnd, EndTime, TotalHoursWorked
+		        //Columns 1-9 and through Row 0
+		    	//Order of Headers: TimeSheet ID, Username, PayPeriod-Week#, Monday-Start, Monday-StartLunch, Monday-EndLunch, Monday-End, Total For Week
+
 		        row.createCell(0).setCellValue(timesheet.getId());		        
-		        row.createCell(1).setCellValue(timesheet.getTitle());
-		        row.createCell(2).setCellValue(timesheet.getDescription());
+		        row.createCell(1).setCellValue(timesheet.getUsername());
 		      }
 		      //Columns 1-4 and through Row 1
 		      Row secondRow = sheet.createRow(1);
@@ -109,12 +109,10 @@ public class ExcelHelper {
 		            break;
 
 		          case 1:
-		        	  timeSheet.setTitle(currentCell.getStringCellValue());
+		        	  timeSheet.setUsername(currentCell.getStringCellValue());
 		            break;
 
-		          case 2:
-		        	  timeSheet.setDescription(currentCell.getStringCellValue());
-		            break;
+
 
 		          default:
 		            break;

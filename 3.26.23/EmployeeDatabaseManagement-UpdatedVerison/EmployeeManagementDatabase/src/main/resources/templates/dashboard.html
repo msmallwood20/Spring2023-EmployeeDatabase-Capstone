@@ -17,7 +17,7 @@
         </button>
             <div class="dropdown-options">
                 <a th:href="@{/accountsettings}">Settings</a>
-                <a href="">Log Out</a>
+                <a th:href="@{/logout}">SignOut</a>
            </div>
         </div>
         </header>
@@ -60,13 +60,6 @@
        </div>
         <div id="HoursThisWeek">
         <p> Hours This Week: (N/A Yet)</p>
-       </div>
-       
-       <div id="Login Out">
-       <form th:action="@{/logout}" method="post"> 
-         <input type="submit" value="Sign Out"/> 
-         </form>
-       </div>
-       
+       </div>       
     </body>
 </html>

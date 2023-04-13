@@ -33,23 +33,39 @@ public class Timesheets {
 	@Column(name = "id")
 	private long id;
 	
-	@Column(name = "title")
-	private String title;
+	@Column(name = "username")
+	private String username;
 	
-	@Column(name = "description")
-	private String description;
+	@Column(name = "payperiod_week")
+	private String payperiod_week;
 	
 	@Column(name = "type")
 	private String type;
+	
+	@Column(name = "Day_1_Start")
+	private Integer day_1_start;
+	
+	@Column(name = "Day_1_LunchS")
+	private Integer day_1_lunchstart;
+	
+	@Column(name = "Day_1_LunchE")
+	private Integer day_1_lunchend;
+	
+	@Column(name = "Day_1_End")
+	private Integer day_1_end;
+	
+	@Column(name = "Day_1_Total")
+	private Integer day_1_total;
+	
 	
 	public Timesheets()
 	{
 		
 	}
 	
-	public Timesheets(String title, String description, String type) {
-		this.title = title;
-		this.description = description;
+	public Timesheets(String username, String payperiod_week, String type, Integer day_1_start, Integer day_1_lunchstart, Integer day_1_lunchend) {
+		this.username = username;
+		this.payperiod_week = payperiod_week;
 		this.type = type;
 	}
 	
@@ -61,24 +77,24 @@ public class Timesheets {
 		    this.id = id;
 		  }
 
-		  public String getTitle() {
-		    return title;
+		  public String getUsername() {
+		    return username;
 		  }
 
-		  public void setTitle(String title) {
-		    this.title = title;
+		  public void setUsername(String username) {
+		    this.username = username;
 		  }
 
-		  public String getDescription() {
-		    return description;
+		  public String getpayperiod_week() {
+		    return payperiod_week;
 		  }
 
-		  public void setDescription(String description) {
-		    this.description = description;
+		  public void setpayperiod_week1(String payperiod_week) {
+		    this.payperiod_week = payperiod_week;
 		  }
 
 		  public String getType() {
-			  return description;
+			  return payperiod_week;
 		  }
 
 		 public void setType(String type) {
@@ -87,7 +103,7 @@ public class Timesheets {
 
 		  @Override
 		  public String toString() {
-		    return "TimeSheet [id=" + id + ", title=" + title + ", desc=" + description + ", type=" + type + "]";
+		    return "TimeSheet [id=" + id + ", username=" + username + ", payperiod_week1=" + payperiod_week + ", type=" + type + "]";
 		  }
 	
 	
