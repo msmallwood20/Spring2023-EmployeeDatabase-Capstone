@@ -1,34 +1,473 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-<head>
-<meta charset="ISO-8859-1">
-<title>TestingListUsers</title>
-</head>
-    <header>
-      <a th:href="@{/index}">Home</a>
-    </header>
-<body>
+<html lang="en">
 
-	<h3>List Users</h3>
-	
-	<table>
-	
-		<thead>
-			<tr>
-				<th>First Name</th>
-				<th>Last Name</th>
-				<th>UserName</th>
-			</tr>
-		</thead>
-	
-		<tbody>
-			<tr th:each="user: ${user}">
-				<td th:text="${user.firstName}" />
-				<td th:text="${user.lastName}" />
-				<td th:text="${user.username}" />
-			</tr>
-		</tbody>
-	</table>
-	
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
+    <meta name="author" content="GeeksLabs">
+    <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+    <link rel="shortcut icon" href="img/favicon.png">
+
+    <title>User Register</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <script src="js/lte-ie7.js"></script>
+    <![endif]-->
+
+    <!-- =======================================================
+      Theme Name: NiceAdmin
+      Theme URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+      Author: BootstrapMade
+      Author URL: https://bootstrapmade.com
+    ======================================================= -->
+</head>
+
+<body>
+<!-- container section start -->
+<section id="container" class="">
+    <!--header start-->
+    <header class="header dark-bg">
+        <div class="toggle-nav">
+            <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+        </div>
+
+        <div class="nav search-row" id="top_menu">
+            <!--  search form start -->
+            <ul class="nav top-menu">
+                <li>
+                    <form class="navbar-form">
+                        <input class="form-control" placeholder="Search" type="text">
+                    </form>
+                </li>
+            </ul>
+            <!--  search form end -->
+        </div>
+
+        <div class="top-nav notification-row">
+            <!-- notificatoin dropdown start-->
+            <ul class="nav pull-right top-menu">            
+           
+                <!-- user login dropdown start-->
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="profile-ava">
+                            </span>
+                        <span class="username" th:text="${#authentication.getPrincipal().getUsername()}">User</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu extended logout">
+                        <div class="log-arrow-up"></div>
+                        <li class="eborder-top">
+                            <a href="accountsettings.html"><i class="icon_profile"></i> My Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="icon_mail_alt"></i> My Inbox</a>
+                        </li>
+                        <li>
+                            <a href="index.html"><i class="icon_key_alt"></i>Home</a>
+                        </li>
+                        <li>
+                            <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- user login dropdown end -->
+            </ul>
+            <!-- notification dropdown end-->
+        </div>
+    </header>
+    <!--header end-->
+
+    <!--sidebar start-->
+    <aside>
+        <div id="sidebar" class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu">
+                <li class="active">
+                    <a class="" th:href="@{/index}">
+                        <i class="icon_house_alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="fa fa-users"></i>
+                        <span>People</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" th:href="@{/employees}">Employee</a></li>
+                        <li><a class="" th:href="@{/contacts}">Contacts</a></li>
+                        <li><a class="" th:href="@{/users}">Users</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon_piechart"></i>
+                        <span>HR Settings</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" th:href="@{/jobTitles}">Job Titles</a></li>
+                        <li><a class="" th:href="@{/employeeTypes}">Employee Type</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon_book"></i>
+                        <span>Reports</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" th:href="@{/blank}">Employee Reports</a></li>
+                        <li><a class="" th:href="@{/blank}">User Reports</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!--sidebar end-->
+
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header"><i class="fa fa-table"></i> Table</h3>
+                    <ol class="breadcrumb">
+                        <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+                        <li><i class="fa fa-table"></i>Table</li>
+                        <li><i class="fa fa-th-list"></i>Basic Table</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- page start-->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            Advanced Table
+                        </header>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add New</button>
+
+                        <table class="table table-striped table-advance table-hover">
+                            <tbody>
+                            <tr>
+                                <th><i class="icon_profile"></i> Firstname</th>
+                                <th><i class="icon_profile"></i>Lastname</th>
+                                <th><i class="icon_profile"></i>Username</th>
+                                <th></th>
+                                <th><i class="icon_cogs"></i> Action</th>
+                            </tr>
+                            <tr th:each="user:${users}">
+                                <td th:text="${user.firstname}">Firstname</td>
+                                <td th:text="${user.lastname}">Lastname</td>
+                                <td th:text="${user.username}">Username</td>
+                                <td><a  th:href="@{'/user/Edit/'+${user.id}}"
+                                        class="btn btn-default"><i class="icon_pencil-edit">
+                                </i>Manage Roles</a></td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a class="btn btn-primary" id="editButton" th:href="@{/users/findById/(id=${user.id})}"><i class="icon_pencil-edit"></i></a>
+                                        <a class="btn btn-success" id="detailsButton" th:href="@{/users/findById/(id=${user.id})}"><i class="icon_document_alt"></i></a>
+                                        <a class="btn btn-danger" id="deleteButton" th:href="@{/users/delete/(id=${user.id})}"><i class="icon_close_alt2"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            </div>
+            <!-- page end-->
+        </section>
+    </section>
+    <!--main content end-->
+    <div class="text-right">
+        <div class="credits">
+            <!--
+              All the links in the footer should remain intact.
+              You can delete the links only if you purchased the pro version.
+              Licensing information: https://bootstrapmade.com/license/
+              Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
+            -->
+            Designed by <a href="#">BootstrapMade</a>
+        </div>
+    </div>
+</section>
+<!-- container section end -->
+
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form th:action="@{/clients/addNew}" method="post">
+        <div class="modal-dialog modal-lg" role="document" style="width:70%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New Client Record</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form>
+                        <table width="100%">
+                            <tr>
+                                <td width="50%">
+
+                                    <div class="form-group row">
+                                        <label for="txtIdAdd" class="col-sm-4 col-form-label">Id: </label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="txtIdAdd" name="id" placeholder="Id" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtNameAdd" class="col-sm-4 col-form-label">Name: </label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="txtNameAdd" name="name" placeholder="Name">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtDetailsAdd" class="col-sm-4 col-form-label">Details.: </label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="txtDetailsAdd" name="details" placeholder="Details">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtWebsiteAdd" class="col-sm-4 col-form-label">website: </label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="txtWebsiteAdd" name="website" placeholder="Website">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtAddressAdd" class="col-sm-4 col-form-label">Address</label>
+                                        <div class="col-sm-6">
+                                            <textarea class="form-control" id="txtAddressAdd" name="address" placeholder="Address" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td width="50%" style="padding-left:10px">
+                                    <div class="form-group row">
+                                        <label for="ddlStateAdd" class="col-sm-4 col-form-label">State/Province: </label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" id="ddlStateAdd" name="stateid">
+                                                <option>-SELECT-</option>
+                                                <option th:each="state : ${states}"
+                                                        th:value="${state.id}"
+                                                        th:text="${state.name}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="ddlCountryAdd" class="col-sm-4 col-form-label">Country: </label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" id="ddlCountryAdd" name="countryid">
+                                                <option>-SELECT-</option>
+                                                <option th:each="country : ${countries}"
+                                                        th:value="${country.id}"
+                                                        th:text="${country.description}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtCityAdd" class="col-sm-4 col-form-label">City: </label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="txtCityAdd" name="city" placeholder="City">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtPhoneAdd" class="col-sm-4 col-form-label">Phone: </label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="txtPhoneAdd" name="phone" placeholder="Phone">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtMobileAdd" class="col-sm-4 col-form-label">Mobile: </label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="txtMobileAdd" name="mobile" placeholder="Mobile">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="txtEmailAdd" class="col-sm-4 col-form-label">Email</label>
+                                        <div class="col-sm-6">
+                                            <input type="email" class="form-control" id="txtEmailAdd" name="email" placeholder="Email">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <button type="submit" class="btn btn-primary">Sign in</button>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form th:action="@{/clients/update}" method="put">
+        <div class="modal-dialog modal-lg" role="document" style="width:70%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Client Record</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <table width="100%">
+                            <tr>
+                                <td width="50%">
+
+                                    <div class="form-group row">
+                                        <label for="txtIdEdit" class="col-sm-4 col-form-label">Id: </label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="txtIdEdit" name="id" placeholder="Id" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtNameEdit" class="col-sm-4 col-form-label">Name: </label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="txtNameEdit" name="name" placeholder="Name">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtDetailsEdit" class="col-sm-4 col-form-label">Details.: </label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="txtDetailsEdit" name="details" placeholder="Details">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtWebsiteEdit" class="col-sm-4 col-form-label">website: </label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="txtWebsiteEdit" name="website" placeholder="Website">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtAddressEdit" class="col-sm-4 col-form-label">Address</label>
+                                        <div class="col-sm-6">
+                                            <textarea class="form-control" id="txtAddressEdit" name="address" placeholder="Address" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td width="50%" style="padding-left:10px">
+                                    <div class="form-group row">
+                                        <label for="ddlStateEdit" class="col-sm-4 col-form-label">State/Province: </label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" id="ddlStateEdit" name="stateid">
+                                                <option>-SELECT-</option>
+                                                <option th:each="state : ${states}"
+                                                        th:value="${state.id}"
+                                                        th:text="${state.name}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="ddlCountryEdit" class="col-sm-4 col-form-label">Country: </label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" id="ddlCountryEdit" name="countryid">
+                                                <option>-SELECT-</option>
+                                                <option th:each="country : ${countries}"
+                                                        th:value="${country.id}"
+                                                        th:text="${country.description}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtCityEdit" class="col-sm-4 col-form-label">City: </label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="txtCityEdit" name="city" placeholder="City">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtPhoneEdit" class="col-sm-4 col-form-label">Phone: </label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="txtPhoneEdit" name="phone" placeholder="Phone">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtMobileEdit" class="col-sm-4 col-form-label">Mobile: </label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="txtMobileEdit" name="mobile" placeholder="Mobile">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="txtEmailEdit" class="col-sm-4 col-form-label">Email</label>
+                                        <div class="col-sm-6">
+                                            <input type="email" class="form-control" id="txtEmailEdit" name="email" placeholder="Email">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <button type="submit" class="btn btn-primary">Sign in</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm delete</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this record?</p>
+            </div>
+            <div class="modal-footer">
+                <a href="" class="btn btn-primary" id="delRef">Yes, Delete</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- javaScripts -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- nicescrollscripts -->
+<script src="js/jquery.scrollTo.min.js"></script>
+<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+<!--custome script for all pages-->
+<script src="js/scripts.js"></script>
+<script type="text/javascript" src="static/js/user.js" th:src="@{/js/user.js}"></script>
+
 </body>
+
 </html>
