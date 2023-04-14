@@ -39,34 +39,14 @@ public class Timesheets {
 	@Column(name = "payperiod_week")
 	private String payperiod_week;
 	
-	@Column(name = "type")
-	private String type;
-	
-	@Column(name = "Day_1_Start")
-	private Integer day_1_start;
-	
-	@Column(name = "Day_1_LunchS")
-	private Integer day_1_lunchstart;
-	
-	@Column(name = "Day_1_LunchE")
-	private Integer day_1_lunchend;
-	
-	@Column(name = "Day_1_End")
-	private Integer day_1_end;
-	
-	@Column(name = "Day_1_Total")
-	private Integer day_1_total;
-	
-	
 	public Timesheets()
 	{
 		
 	}
 	
-	public Timesheets(String username, String payperiod_week, String type, Integer day_1_start, Integer day_1_lunchstart, Integer day_1_lunchend) {
+	public Timesheets(String username, String payperiod_week) {
 		this.username = username;
 		this.payperiod_week = payperiod_week;
-		this.type = type;
 	}
 	
 	  	public long getId() {
@@ -89,24 +69,8 @@ public class Timesheets {
 		    return payperiod_week;
 		  }
 
-		  public void setpayperiod_week1(String payperiod_week) {
+		  public void setpayperiod_week(String payperiod_week) {
 		    this.payperiod_week = payperiod_week;
 		  }
-
-		  public String getType() {
-			  return payperiod_week;
-		  }
-
-		 public void setType(String type) {
-			 this.type = ".xlsx";
-		}
-
-		  @Override
-		  public String toString() {
-		    return "TimeSheet [id=" + id + ", username=" + username + ", payperiod_week1=" + payperiod_week + ", type=" + type + "]";
-		  }
-	
-	
-	
 }
 

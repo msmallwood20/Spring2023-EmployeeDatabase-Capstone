@@ -25,7 +25,7 @@ import edu.group3.EmployeeManagement.models.Timesheets;
 public class ExcelHelper {
 
 	  public static String TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-	  static String[] HEADERs = { "Id", "Title", "Description", "Header" };
+	  static String[] HEADERs = { "Id", "Username", "PayPeriod-Week#" };
 	  static String SHEET = "TimeSheets";
 	  
 	  //System to Download a excel file
@@ -46,17 +46,24 @@ public class ExcelHelper {
 		      for (Timesheets timesheet : timeSheets) {
 		        Row row = sheet.createRow(rowIdx++);
 		        //Columns 1-9 and through Row 0
+		        //A1-H1
 		    	//Order of Headers: TimeSheet ID, Username, PayPeriod-Week#, Monday-Start, Monday-StartLunch, Monday-EndLunch, Monday-End, Total For Week
 
 		        row.createCell(0).setCellValue(timesheet.getId());		        
 		        row.createCell(1).setCellValue(timesheet.getUsername());
+		        row.createCell(2).setCellValue(timesheet.getpayperiod_week());
+				/*
+				 * row.createCell(3).setCellValue(timesheet.getDay_1_start());
+				 * row.createCell(4).setCellValue(timesheet.getDay_1_lunchstart());
+				 * row.createCell(5).setCellValue(timesheet.getDay_1_lunchend());
+				 * row.createCell(6).setCellValue(timesheet.getDay_1_end());
+				 * row.createCell(7).setCellValue(timesheet.getDay_1_total());
+				 */
 		      }
-		      //Columns 1-4 and through Row 1
+		      //Columns 1-9 and through Row 1
+		      //A2-H2
 		      Row secondRow = sheet.createRow(1);
-		      secondRow.createCell(0).setCellValue("New Data 1");
-		      secondRow.createCell(1).setCellValue("New Data 2");
-		      secondRow.createCell(2).setCellValue("New Data 3");
-		      secondRow.createCell(3).setCellValue("New Data 4");
+		      secondRow.createCell(7).setCellValue("=MOD(G2-D2,1)*24-MOD(F2-E2,1)*24 ");
 		      
 		      workbook.write(out);
 		      return new ByteArrayInputStream(out.toByteArray());
@@ -112,8 +119,23 @@ public class ExcelHelper {
 		        	  timeSheet.setUsername(currentCell.getStringCellValue());
 		            break;
 
+		          case 2:
+		        	  timeSheet.setpayperiod_week(currentCell.getStringCellValue());
+		            break;
 
-
+				/*
+				 * case 3: timeSheet.setDay_1_start(currentCell.getStringCellValue()); break;
+				 * 
+				 * case 4: timeSheet.setDay_1_lunchstart(currentCell.getStringCellValue());
+				 * break;
+				 * 
+				 * case 5: timeSheet.setDay_1_lunchend(currentCell.getStringCellValue()); break;
+				 * 
+				 * case 6: timeSheet.setDay_1_end(currentCell.getStringCellValue()); break;
+				 * 
+				 * case 7: timeSheet.setDay_1_total(currentCell.getStringCellValue()); break;
+				 */
+		            
 		          default:
 		            break;
 		          }

@@ -14,6 +14,8 @@ public class UserPrincipal implements UserDetails {
 	 */
 	private static final long serialVersionUID = 1L;
 	private User user;
+	
+	private Timesheets timesheets;
 
 	public UserPrincipal(User user) {
 		this.user = user;
@@ -65,4 +67,10 @@ public class UserPrincipal implements UserDetails {
 	public String getFullName() {
 		return this.user.getFullName();
 	}
+	
+	public String getTimesheet()
+	{
+		return this.timesheets.getUsername();
+	}
+	
 }
