@@ -1,5 +1,6 @@
 <!Doctype html>
-<html xmlns:th="https://www.thymeleaf.org"  xmlns="http://www.w3.org/1999/xhtml"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head>
         <title>Account Settings</title>
         <meta charset="utf-8">
@@ -18,7 +19,7 @@
     <button class="MenuButton">Back To Dashboard</button> 
 </a>
 <div id="infobox" > <p id="PersonalInfo"><u>  Personal Information </u> </p>
-    <p>Name: (Will populate user name)</p> <br>
+    <p>Name: <span th:text="${#authentication.getPrincipal().getFirstName} + ' ' + ${#authentication.getPrincipal().getLastName}"></span></p> <br>
     <p>Email: (Will populate user email)</p> <br>
     <p>Address: (Will populate user address)</p> <br>
     <p>Phone Number: (Will populate user phone number)</p>

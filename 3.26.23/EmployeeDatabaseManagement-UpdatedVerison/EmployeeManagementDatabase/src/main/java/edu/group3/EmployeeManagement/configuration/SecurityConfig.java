@@ -38,38 +38,19 @@ public class SecurityConfig {
 		return new MyUserDetailsService();
 	}
 	
-	/*
-	@Bean
-    public InMemoryUserDetailsManager userDetailsService(PasswordEncoder passwordEncoder) {
-        UserDetails user = User.withUsername("user")
-            .password(passwordEncoder.encode("password"))
-            .roles("USER")
-            .build();
-
-        UserDetails admin = User.withUsername("admin")
-            .password(passwordEncoder.encode("admin"))
-            .roles("USER", "ADMIN")
-            .build();
-
-        return new InMemoryUserDetailsManager(user, admin);
-    }
-	*/
-	
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http
+		http.csrf().disable()
 			.authorizeHttpRequests((requests) -> requests
-				.requestMatchers("/", "/index", "/registration", "/registrationsucces", "/loginsuccess", "/login", "/logout", "/TestingListUsers").permitAll()
+				.requestMatchers("/", "/index", "/registration", "/registrationsucces", "/loginsuccess", "/login", "/logout", "/createpassword").permitAll()
 				.requestMatchers("/css/**", "/js/**", "/Images/**").permitAll()
-				.requestMatchers("/dashboard").hasAnyRole(" ", "ADMIN", "USER")
 				.anyRequest().authenticated()
 			)
-			.csrf().disable()
 			.formLogin((form) -> form
 				.usernameParameter("username")
 				.passwordParameter("password")
-				.loginPage("/login")
-				.loginProcessingUrl("/loginsuccess")
+				.loginPage("/login").permitAll()
+				.defaultSuccessUrl("/loginsuccess")
 				.permitAll()
 			)
 			.logout((logout) -> logout.permitAll());
@@ -81,14 +62,6 @@ public class SecurityConfig {
 	    public BCryptPasswordEncoder passwordEncoder() {
 	        return new BCryptPasswordEncoder();
 	    }
-	
-	/*
-	  @Bean
-	    public PasswordEncoder passwordEncoder() {
-	        PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-	        return encoder;
-	    }
-	  */
 	
 	    @Bean
 	    public DaoAuthenticationProvider authenticationProvider() {

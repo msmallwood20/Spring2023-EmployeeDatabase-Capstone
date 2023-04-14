@@ -16,17 +16,20 @@
     <body>
         <!--Login form Div-->
         <div th:if="${param.error}">
-            Invalid username and/or password.
+            Invalid username and/or password. If you Forgot your Password, please select "Forget Password?".
         </div>
         <div th:if="${param.logout}">
             You have been logged out.
         </div>
-        
-      <form th:action="@{/loginsuccess}" method="post" th:object="${user}">
+      <form th:action="@{/login}" method="post" th:object="${user}">
         <div class="Login">
 
             <label for="uname"><b>Username</b></label>
+<<<<<<< HEAD
             <input type="text" class="form-control" placeholder="Enter username" name="username" required/>
+=======
+            <input type="text" placeholder="Enter username" name="username" required/>
+>>>>>>> refs/remotes/origin/main
             <br>
             <br>
             <label for="psw"><b>Password</b></label>
@@ -42,12 +45,11 @@
             </label>
             </div>
             <br>
-            <div class="Create/Edit">
-              <a th:href="@{/registration}">Register</a>
-              <a>Forget Password?</a>
-            </div>
     </form>
-
+    <div class="Create/Edit">
+        <a th:href="@{/registration}">Register</a>
+        <a th:href="@{/createpassword}">Forget Password?</a>
+    </div>
     <!--Refrences to JavaScript-->
     <script src=""></script>
 

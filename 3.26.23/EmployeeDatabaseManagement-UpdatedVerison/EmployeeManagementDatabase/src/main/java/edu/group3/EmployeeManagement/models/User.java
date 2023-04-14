@@ -15,6 +15,8 @@ import jakarta.persistence.JoinColumn;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.util.StringBuilderFormattable;
+
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -36,11 +38,17 @@ public class User {
     
     private String lastName;
     
-	private String username;
+    private String fullName;
+
+    private String username;
 	
 	private String email;
 	
 	private String password;
+	
+	private String oldPassword;
+	
+	private String newPassword;
 
 	 @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
@@ -73,7 +81,16 @@ public class User {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
+	
+	public String getFullName() {
+		return fullName;
+	}
+	
+	public void setFullName(String fullName)
+	{
+		this.fullName = this.getFirstName() + " " + this.getLastName();
+	}
+	
 	public String getUsername() {
 		return username;
 	}
@@ -97,7 +114,23 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	 public String getOldPassword() {
+	        return oldPassword;
+	    }
 
+	    public void setOldPassword(String oldPassword) {
+	        this.oldPassword = oldPassword;
+	    }
+
+	    public String getNewPassword() {
+	        return newPassword;
+	    }
+
+	    public void setNewPassword(String newPassword) {
+	        this.newPassword = newPassword;
+	    }
+	
 	public List<Role> getRoles() {
 		return roles;
 	}
