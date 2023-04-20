@@ -43,6 +43,7 @@
 				<td th:text="${user.firstName}" />
 				<td th:text="${user.lastName}" />
 				<td th:text="${user.username}" />
+				<td><span sec:authentication="principal.authorities">Roles</span>
 			</tr>
 		</tbody>
 	</table>

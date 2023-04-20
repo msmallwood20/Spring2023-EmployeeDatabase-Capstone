@@ -32,16 +32,13 @@
                 <a href="#">Dashboard</a>
                 <a th:href="@{/timesheet}">Time Sheet</a>
                 <a th:href="@{/manageusers}">Manage Users</a>
-                <a th:href="@{/addusers}">Add Users</a>
-                <a th:href="@{/inbox}">Inbox</a>
-                <a th:href="@{/fileserver}">File Server</a>
-                <a th:href="@{/systemlog}">System Log</a>
+<!-- 				<a th:href="@{/addusers}">Add Users</a>
                 <a th:href="@{/payrollAdmin}">Payroll Admin</a>
-                <a th:href="@{/payrollUser}">Payroll User</a>
-               	<!-- Will be used later to add in Roles -->
-				<!-- <a sec:authorize="hasRole('ADMIN')" th:href="@{/payrollAdmin}">Payroll</a> -->
-				<!-- <a sec:authorize="hasRole('ADMIN')" th:href="@{/addusers}">Add Users</a>
-                <a sec:authorize="hasRole('USER')" th:href="@{/payrollUser}">Payroll</a> -->
+                <a th:href="@{/payrollUser}">Payroll User</a> -->
+               	<!-- Access based on Roles -->
+				<a sec:authorize="hasRole('ADMIN')" th:href="@{/payrollAdmin}">Payroll</a>
+				<a sec:authorize="hasRole('ADMIN')" th:href="@{/addusers}">Add Users</a>
+                <a sec:authorize="hasRole('USER')" th:href="@{/payrollUser}">Payroll</a>
             </div>
         </div>
        <div id="TodaysDate", style="float:right;">

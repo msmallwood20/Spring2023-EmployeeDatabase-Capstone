@@ -11,21 +11,34 @@ public class Role {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	private String name;
 	
-	@ManyToMany(mappedBy = "roles")
-    private List < User > users;
+	public Role()
+	{
+		
+	}
 	
-	public Role(String string) {
-	
+	public Role(String name) {
+		this.name = name;
 	}
 
-	public Long getId() {
+	public Role(Integer id, String name)
+	{
+		this.id = id;
+		this.name = name;
+	}
+	
+	public Role(Integer id)
+	{
+		this.id = id;
+	}
+	
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
         this.id = id;
     }
 
@@ -35,13 +48,5 @@ public class Role {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public List < User > getUsers() {
-        return users;
-    }
-
-    public void setUsers(List < User > users) {
-        this.users = users;
     }
 }

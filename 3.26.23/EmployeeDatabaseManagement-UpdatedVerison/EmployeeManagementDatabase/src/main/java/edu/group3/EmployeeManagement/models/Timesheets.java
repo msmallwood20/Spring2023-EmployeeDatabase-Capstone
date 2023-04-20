@@ -33,8 +33,8 @@ public class Timesheets {
 	@Column(name = "id")
 	private long id;
 	
-	@Column(name = "username")
-	private String username;
+	@Column(name = "firstName")
+	private String firstName;
 	
 	@Column(name = "payperiod_week")
 	private String payperiod_week;
@@ -44,8 +44,8 @@ public class Timesheets {
 		
 	}
 	
-	public Timesheets(String username, String payperiod_week) {
-		this.username = username;
+	public Timesheets(String firstName, String payperiod_week) {
+		this.firstName = firstName;
 		this.payperiod_week = payperiod_week;
 	}
 	
@@ -57,12 +57,12 @@ public class Timesheets {
 		    this.id = id;
 		  }
 
-		  public String getUsername() {
-		    return username;
+		  public String getFirstName() {
+		    return firstName;
 		  }
 
-		  public void setUsername(String username) {
-		    this.username = username;
+		  public void setgetFirstName(String firstName) {
+		    this.firstName = firstName;
 		  }
 
 		  public String getpayperiod_week() {
