@@ -8,12 +8,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.JoinColumn;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.logging.log4j.util.StringBuilderFormattable;
 
@@ -49,14 +52,18 @@ public class User {
 	private String oldPassword;
 	
 	private String newPassword;
-
+	
 	 @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
        name="user_role",
        joinColumns={@JoinColumn(name="USER_ID", referencedColumnName="ID")},
        inverseJoinColumns={@JoinColumn(name="ROLE_ID", referencedColumnName="ID")})
 	 
-	  private List<Role> roles = new ArrayList<>();
+	 private Set<Role> roles = new HashSet<>();
+	 
+	 public void addRole(Role role) {
+		 this.roles.add(role);
+	 }
 	
 	public int getId() {
 		return id;
@@ -130,17 +137,4 @@ public class User {
 	    public void setNewPassword(String newPassword) {
 	        this.newPassword = newPassword;
 	    }
-	
-	public List<Role> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
-	}
-
-	public void addRole(Role roleUser) {
-		this.roles.add(roleUser);
-		
-	}
 }

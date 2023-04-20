@@ -33,24 +33,20 @@ public class Timesheets {
 	@Column(name = "id")
 	private long id;
 	
-	@Column(name = "title")
-	private String title;
+	@Column(name = "firstName")
+	private String firstName;
 	
-	@Column(name = "description")
-	private String description;
-	
-	@Column(name = "type")
-	private String type;
+	@Column(name = "payperiod_week")
+	private String payperiod_week;
 	
 	public Timesheets()
 	{
 		
 	}
 	
-	public Timesheets(String title, String description, String type) {
-		this.title = title;
-		this.description = description;
-		this.type = type;
+	public Timesheets(String firstName, String payperiod_week) {
+		this.firstName = firstName;
+		this.payperiod_week = payperiod_week;
 	}
 	
 	  	public long getId() {
@@ -61,36 +57,20 @@ public class Timesheets {
 		    this.id = id;
 		  }
 
-		  public String getTitle() {
-		    return title;
+		  public String getFirstName() {
+		    return firstName;
 		  }
 
-		  public void setTitle(String title) {
-		    this.title = title;
+		  public void setgetFirstName(String firstName) {
+		    this.firstName = firstName;
 		  }
 
-		  public String getDescription() {
-		    return description;
+		  public String getpayperiod_week() {
+		    return payperiod_week;
 		  }
 
-		  public void setDescription(String description) {
-		    this.description = description;
+		  public void setpayperiod_week(String payperiod_week) {
+		    this.payperiod_week = payperiod_week;
 		  }
-
-		  public String getType() {
-			  return description;
-		  }
-
-		 public void setType(String type) {
-			 this.type = ".xlsx";
-		}
-
-		  @Override
-		  public String toString() {
-		    return "TimeSheet [id=" + id + ", title=" + title + ", desc=" + description + ", type=" + type + "]";
-		  }
-	
-	
-	
 }
 

@@ -14,10 +14,10 @@
 			<button>
 				<img th:src="@{/Images/avatar.png}" alt="Avatar" class="avatar">
 			</button>
-				<div class="dropdown-options">
-					<a th:href="@{/accountsettings}">Settings</a>
-					<a href="">Log Out</a>
-			   </div> 
+            <div class="dropdown-options">
+                <a th:href="@{/accountsettings}">Settings</a>
+                <a th:href="@{/logout}">SignOut</a>
+           </div>
 	</div>	
     </header>
 <body>
@@ -43,6 +43,7 @@
 				<td th:text="${user.firstName}" />
 				<td th:text="${user.lastName}" />
 				<td th:text="${user.username}" />
+				<td><span sec:authentication="principal.authorities">Roles</span>
 			</tr>
 		</tbody>
 	</table>

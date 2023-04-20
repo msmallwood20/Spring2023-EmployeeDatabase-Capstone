@@ -34,31 +34,4 @@ public class MyUserDetailsService implements UserDetailsService {
 		}
 		return new UserPrincipal(user);
 	}
-	
-	/*
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
-		User user = userRepository.findByUsername(username);
-		if(user==null) {
-			throw new UsernameNotFoundException("User not found!");
-		}
- 
-		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), getAuthorities(user));
-	}
-	*/
-    private static Collection<? extends GrantedAuthority> getAuthorities(User user) {
-        String[] userRoles = user.getRoles().stream().map((role) -> role.getName()).toArray(String[]::new);
-        Collection<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList(userRoles);
-        return authorities;
-    }
-	
-    public void registerDefaultUser(User user)
-    {
-    	Role roleUser =  roleRepository.findByName("User");
-    	user.addRole(roleUser);
-    	
-    	userRepository.save(user);
-    }
-
 }
