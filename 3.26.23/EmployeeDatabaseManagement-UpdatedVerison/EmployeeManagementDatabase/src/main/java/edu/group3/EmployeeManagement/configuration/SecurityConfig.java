@@ -1,4 +1,4 @@
-package edu.group3.EmployeeManagement.configuration;
+ package edu.group3.EmployeeManagement.configuration;
 
 import java.net.URL;
 
