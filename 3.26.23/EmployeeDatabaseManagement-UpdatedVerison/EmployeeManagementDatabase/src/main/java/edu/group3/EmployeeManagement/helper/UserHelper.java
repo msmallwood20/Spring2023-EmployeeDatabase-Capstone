@@ -25,7 +25,7 @@ import edu.group3.EmployeeManagement.models.User;
 
 public class UserHelper {
 	public static String TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-	  static String[] HEADERs = { "Id", "FirstName", "LastName", "UserName", "Password"};
+	  static String[] HEADERs = { "Id", "FirstName", "LastName", "UserName", "Password", "Email"};
 	  static String SHEET = "User";
 	  
 	  //System to Download a excel file
@@ -46,12 +46,13 @@ public class UserHelper {
 		      for (User user : users) {
 		        Row row = sheet.createRow(rowIdx++);
 		        //Columns 1-4 and through Row 0
-		    	//Order of Headers: Id, FirstName, LastName, UserName, Paswsword
+		    	//Order of Headers: Id, FirstName, LastName, UserName, Password
 		        row.createCell(0).setCellValue(user.getId());		        
 		        row.createCell(1).setCellValue(user.getFirstName());
 		        row.createCell(2).setCellValue(user.getLastName());
 		        row.createCell(3).setCellValue(user.getUsername());
 		        row.createCell(4).setCellValue(user.getPassword());
+		        row.createCell(5).setCellValue(user.getEmail());
 		      }
 
 		      userWorkbook.write(out);
@@ -121,6 +122,10 @@ public class UserHelper {
 		        	BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		      		String encodedPassword = passwordEncoder.encode(user.getPassword());
 		      		user.setPassword(encodedPassword);
+		            break;
+		            
+		          case 5:
+		        	  user.setEmail(currentCell.getStringCellValue());
 		            break;
 		            
 		          default:

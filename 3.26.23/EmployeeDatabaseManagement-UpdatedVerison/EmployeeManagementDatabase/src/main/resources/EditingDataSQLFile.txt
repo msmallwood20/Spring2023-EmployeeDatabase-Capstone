@@ -6,11 +6,11 @@ Goes into data.sql to import to database:
 
 INSERT INTO inserts a new row into a table. If the table has a unique or primary key constraint and the values being inserted already exist in the table, the insertion will fail and an error will be thrown.
 
-insert into user values(2, 'Dr.Sam', 'Dr.Sam Thangiah', 'Thangiah', '', '', '', 'sam488');
+insert into user values(2, '', 'Dr.Sam', 'Dr.Sam Thangiah', 'Thangiah', '', '', '', 'sam488');
 
 REPLACE INTO also inserts a new row into a table, but if a row with the same unique or primary key already exists, it will replace the existing row with the new data instead of throwing an error.
 
-replace into user values(1, 'Maya', 'Maya Smallwood', 'Smallwood', '', '', '', 'mns1013');
+replace into user values(1, 'mayasmallwood41@gmail.com', 'Maya', 'Maya Smallwood', 'Smallwood', '', '', '', 'mns1013');
 
 
 
