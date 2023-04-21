@@ -25,7 +25,7 @@ import edu.group3.EmployeeManagement.models.Timesheets;
 public class ExcelHelper {
 
 	  public static String TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-	  static String[] HEADERs = { "Id", "FirstName", "PayPeriod-Week#" };
+	  static String[] HEADERs = { "Id", "Username", "FirstName", "LastName", "PayPeriod-Week#" };
 	  static String SHEET = "TimeSheets";
 	  
 	  //System to Download a excel file
@@ -49,9 +49,11 @@ public class ExcelHelper {
 		        //A1-H1
 		    	//Order of Headers: TimeSheet ID, Username, PayPeriod-Week#, Monday-Start, Monday-StartLunch, Monday-EndLunch, Monday-End, Total For Week
 
-		        row.createCell(0).setCellValue(timesheet.getId());		        
-		        row.createCell(1).setCellValue(timesheet.getFirstName());
-		        row.createCell(2).setCellValue(timesheet.getpayperiod_week());
+		        row.createCell(0).setCellValue(timesheet.getId());		   
+		        row.createCell(1).setCellValue(timesheet.getUsername());		   
+		        row.createCell(2).setCellValue(timesheet.getFirstName());
+		        row.createCell(3).setCellValue(timesheet.getLastName());
+		        row.createCell(4).setCellValue(timesheet.getpayperiod_week());
 				/*
 				 * row.createCell(3).setCellValue(timesheet.getDay_1_start());
 				 * row.createCell(4).setCellValue(timesheet.getDay_1_lunchstart());
@@ -120,8 +122,17 @@ public class ExcelHelper {
 		            break;
 
 		          case 2:
+		        	  timeSheet.setLastName(currentCell.getStringCellValue());
+		            break;
+		            
+		          case 3:
+		        	  timeSheet.setUsername(currentCell.getStringCellValue());
+		            break;
+		            
+		          case 4:
 		        	  timeSheet.setpayperiod_week(currentCell.getStringCellValue());
 		            break;
+		         
 
 				/*
 				 * case 3: timeSheet.setDay_1_start(currentCell.getStringCellValue()); break;

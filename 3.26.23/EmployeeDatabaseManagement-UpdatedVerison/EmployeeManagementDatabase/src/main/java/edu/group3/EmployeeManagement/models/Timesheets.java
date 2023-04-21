@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.JoinColumn;
@@ -33,19 +34,31 @@ public class Timesheets {
 	@Column(name = "id")
 	private long id;
 	
+	@Column(name = "username")
+    private String username;
+	
 	@Column(name = "firstName")
 	private String firstName;
 	
+	@Column(name = "lastName")
+	private String lastName;
+	
 	@Column(name = "payperiod_week")
 	private String payperiod_week;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_timesheet", referencedColumnName="username")
+	private User user;
 	
 	public Timesheets()
 	{
 		
 	}
 	
-	public Timesheets(String firstName, String payperiod_week) {
+	public Timesheets(String firstName, String lastName, String username, String payperiod_week) {
 		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
 		this.payperiod_week = payperiod_week;
 	}
 	
@@ -57,13 +70,29 @@ public class Timesheets {
 		    this.id = id;
 		  }
 
+		  public String getUsername() {
+				return username;
+			}
+
+			public void setUsername(String username) {
+				this.username = username;
+			}
+		  
 		  public String getFirstName() {
 		    return firstName;
 		  }
 
-		  public void setgetFirstName(String firstName) {
+		  public void setFirstName(String firstName) {
 		    this.firstName = firstName;
 		  }
+		  
+		  public String getLastName() {
+			    return firstName;
+			  }
+
+		  public void setLastName(String lastName) {
+			    this.lastName = lastName;
+			  }
 
 		  public String getpayperiod_week() {
 		    return payperiod_week;

@@ -57,7 +57,6 @@ public class MainController {
 					return "addusers";
 				}
 				
-				
 				@GetMapping(value="/fileserver")
 				public String fileserver()
 				{
@@ -77,9 +76,11 @@ public class MainController {
 				}
 			
 				@GetMapping(value="/payrollAdmin")
-				public String payrolluser()
+				public ModelAndView payrolluser()
 				{
-					return "payrollAdmin";
+					ModelAndView payUser = new ModelAndView("payrollAdmin");
+					payUser.addObject("user", uRepo.findAll());
+					return payUser;
 				}
 				
 				@GetMapping(value="/payrollUser")

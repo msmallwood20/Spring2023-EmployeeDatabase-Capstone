@@ -6,22 +6,32 @@ header {
     font-size: 30px;
     font-weight: 200;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Page header Formats The top Bar */
+#PageHeader {
+    background-color: #bfbfbf;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    font-size: 20px;
+    border-radius: 25px;
+    margin-top: 5px;
   }
 
-#PayrollTable {
-    display: none;
-    animation: fade 0.3s ease;
-}
-@keyframes fade {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
+  .MenuButton {
+    background-color: #8f8f8f;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    width: 135px;
+    border: none;
+    margin-top: 5px;
+  }
 
-.avatar {
+  .avatar {
     height: 50px;
     width: 50px;
     border-radius: 50%;
@@ -57,4 +67,3 @@ header {
   }
 
   .accountDropdown:hover .dropdown-options {display: block;}
-  .dropdown-options a:hover {background-color: #ddd;}

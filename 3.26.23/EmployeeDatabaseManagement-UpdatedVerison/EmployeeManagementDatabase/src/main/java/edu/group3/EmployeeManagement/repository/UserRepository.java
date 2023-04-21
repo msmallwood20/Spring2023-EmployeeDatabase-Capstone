@@ -13,9 +13,4 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
 	@Query("SELECT u FROM User u WHERE u.username = ?1")
 	User findByUsername(String username);
-	
-	/*
-	 * @Query("SELECT DISTINCT u FROM User u JOIN u.roles r WHERE r.name LIKE %?1%")
-	 * public Page<User> findAll(String keyword, Pageable pageable);
-	 */
 }
