@@ -46,10 +46,6 @@ public class Timesheets {
 	@Column(name = "payperiod_week")
 	private String payperiod_week;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_timesheet", referencedColumnName="username")
-	private User user;
-	
 	public Timesheets()
 	{
 		
