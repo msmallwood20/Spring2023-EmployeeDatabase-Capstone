@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.logging.log4j.util.StringBuilderFormattable;
+import org.hibernate.annotations.Cascade;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -60,6 +61,21 @@ public class User {
        inverseJoinColumns={@JoinColumn(name="ROLE_ID", referencedColumnName="ID")})
 	 
 	 private Set<Role> roles = new HashSet<>();
+	 
+	 @OneToMany(cascade = CascadeType.ALL)
+	 @JoinColumn( name = "user_timesheet", referencedColumnName = "username")
+	 List<Timesheets> timesheets = new ArrayList<>();
+	 
+	 
+	 public List<Timesheets> geTimesheets()
+	 {
+		 return timesheets;
+	 }
+	 
+	 public void setTimesheets(List<Timesheets> timesheets)
+	 {
+		 this.timesheets = timesheets;
+	 }
 	 
 	 public void addRole(Role role) {
 		 this.roles.add(role);
