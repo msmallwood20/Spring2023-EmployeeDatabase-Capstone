@@ -85,5 +85,8 @@ public class UserPrincipal implements UserDetails {
 	public String getFullName() {
 		return this.user.getFullName();
 	}
-	
+
+	public String getEmail() {
+		return this.user.getEmail();
+	}
 }

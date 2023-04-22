@@ -55,15 +55,19 @@ public class User {
 	private String newPassword;
 	
 	 @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(
+	 @JoinTable(
        name="user_role",
        joinColumns={@JoinColumn(name="USER_ID", referencedColumnName="ID")},
        inverseJoinColumns={@JoinColumn(name="ROLE_ID", referencedColumnName="ID")})
 	 
 	 private Set<Role> roles = new HashSet<>();
 	 
-	 @OneToMany(cascade = CascadeType.ALL)
-	 @JoinColumn( name = "user_timesheet", referencedColumnName = "username")
+	 @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	 @JoinTable(
+	    	  name="user_timesheet",
+	    	  joinColumns={@JoinColumn(name="USER_NAME", referencedColumnName="username")},
+	    	  inverseJoinColumns={@JoinColumn(name="TIMESHEET_USER", referencedColumnName="username")})
+	 
 	 List<Timesheets> timesheets = new ArrayList<>();
 	 
 	 
