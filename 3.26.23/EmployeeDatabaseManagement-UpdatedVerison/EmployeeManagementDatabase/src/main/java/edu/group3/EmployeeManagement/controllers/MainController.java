@@ -1,10 +1,18 @@
 package edu.group3.EmployeeManagement.controllers;
 
+import java.security.Principal;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import edu.group3.EmployeeManagement.models.Timesheets;
+import edu.group3.EmployeeManagement.models.User;
+import edu.group3.EmployeeManagement.models.UserPrincipal;
+import edu.group3.EmployeeManagement.repository.ExcelRepository;
 import edu.group3.EmployeeManagement.repository.UserRepository;
 
 //In this Class is our main controller that allows thymeleaf to locate and call web pages from the src/main/resources/templates folder, it also Requires the "@Controller" Tag
@@ -14,6 +22,8 @@ public class MainController {
 	@Autowired
 	private UserRepository uRepo;
 	
+	@Autowired
+	private ExcelRepository excelRepository;
 	//These methods have the @GetMapping("***") Tag, inside of the parentheses, is the name that thymeleaf will use when calling to find that page-Explained more on the HTML pages
 		
 	//The return "***"; references directly to the web pages names that are located in the src/main/resources/templates folder

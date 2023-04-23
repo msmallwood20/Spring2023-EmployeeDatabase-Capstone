@@ -118,15 +118,16 @@ public class ExcelHelper {
 		            break;
 
 		          case 1:
-		        	  timeSheet.setFirstName(currentCell.getStringCellValue());
+		        	  timeSheet.setUsername(currentCell.getStringCellValue());
+
 		            break;
 
 		          case 2:
-		        	  timeSheet.setLastName(currentCell.getStringCellValue());
+		        	  timeSheet.setFirstName(currentCell.getStringCellValue());
 		            break;
 		            
 		          case 3:
-		        	  timeSheet.setUsername(currentCell.getStringCellValue());
+		        	  timeSheet.setLastName(currentCell.getStringCellValue());
 		            break;
 		            
 		          case 4:

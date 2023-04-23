@@ -34,6 +34,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import edu.group3.EmployeeManagement.helper.ExcelHelper;
@@ -65,27 +66,27 @@ public class ExcelController {
 			      .contentType(MediaType.parseMediaType("application/vnd.ms-excel"))
 			      .body(file);
 	  }
-	  
+	
 	//Uploading a filled from timesheet page
 	  @PostMapping("/upload")
-	  public ResponseEntity<ResponseMessage> upload(@RequestParam("file") MultipartFile file)
-	  {
-		  String message = "";
-		  if (ExcelHelper.hasExcelFormat(file)) {
-		      try {
-		        fileService.save(file);
+	  public String upload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
+	      if (ExcelHelper.hasExcelFormat(file)) {
+	          try {
+	              fileService.save(file);
 
-		        message = "Uploaded the file successfully: " + file.getOriginalFilename();
-		        return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
-
-		        } catch (Exception e) {
-		        message = "Could not upload the file: " + file.getOriginalFilename() + "!";
-		        return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
-		      }
-		    }
-		  message = "Please upload an excel file!";
-		    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(message));
-		  }
+	              String message = "Uploaded the file successfully: " + file.getOriginalFilename();
+	              redirectAttributes.addFlashAttribute("successMessage", message); // Add a flash attribute with a success message
+	          } catch (Exception e) {
+	              String message = "Could not upload the file: " + file.getOriginalFilename() + "!";
+	              redirectAttributes.addFlashAttribute("errorMessage", message); // Add a flash attribute with an error message
+	          }
+	      } else {
+	          String message = "Please upload an excel file!";
+	          redirectAttributes.addFlashAttribute("errorMessage", message); // Add a flash attribute with an error message
+	      }
+	      
+	      return "redirect:/timesheet"; // Redirect to the "/timesheet" page
+	  }
 	  //Gets a list of the uploaded files
 	  @GetMapping("/view")
 	  public ResponseEntity<List<Timesheets>> getAllTimeSheets()

@@ -15,8 +15,8 @@
 
     <body>
         <!--Login form Div-->
-        <div th:if="${param.error}">
-            Invalid username and/or password. If you Forgot your Password, please select "Forget Password?".
+        <div th:if="${param.error}" style="background-color: #EBEBEB">
+            Invalid username and/or password. If you Forgot your Password OR if you are a new user, please select "Forget Password?" and create a password.
         </div>
         <div th:if="${param.logout}">
             You have been logged out.
