@@ -23,11 +23,6 @@ public class UserPrincipal implements UserDetails {
 	public UserPrincipal(User user) {
 		this.user = user;
 	}
-
-	/*
-	 * @Override public Collection<? extends GrantedAuthority> getAuthorities() {
-	 * return Collections.singleton(new SimpleGrantedAuthority("USER")); }
-	 */
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities()

@@ -32,7 +32,12 @@
         <h2 class="display-2 text-center my-5">Employee Timesheet</h2>
         
         <div class="container-md text-center">
-          
+          <div th:if="${successMessage != null}" class="alert alert-success" role="alert">
+    <span th:text="${successMessage}"></span>
+	</div>
+	<div th:if="${errorMessage != null}" class="alert alert-danger" role="alert">
+	    <span th:text="${errorMessage}"></span>
+	</div>
           <h1>Please Upload a Excel <b>.xlsx</b> file, to upload your TimeSheet.</h1>
           		<br>
 				<form method="POST" action="/api/excel/upload" enctype="multipart/form-data">

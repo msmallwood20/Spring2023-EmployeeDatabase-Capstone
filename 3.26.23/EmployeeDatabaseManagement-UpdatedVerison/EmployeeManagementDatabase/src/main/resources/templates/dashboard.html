@@ -32,10 +32,10 @@
                 <a href="#">Dashboard</a>
                 <a th:href="@{/timesheet}">Time Sheet</a>
                 <a sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{/manageusers}">Manage Users</a>
+                				<a th:href="@{/payrollUser}">My Payroll</a>
                	<!-- Access based on Roles -->
-				<a sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{/payrollAdmin}">Payroll</a>
+				<a sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{/payrollAdmin}">View Payroll</a>
 				<a sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{/addusers}">Add Users</a>
-				<a sec:authorize="hasAnyAuthority('USER')" th:href="@{/payrollUser}">Payroll</a>
             </div>
         </div>
        <div id="TodaysDate", style="float:right;">
