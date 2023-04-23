@@ -1,0 +1,42 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="css/manageusers.css" type="text/css" rel="stylesheet">
+    <title>Change Roles</title>
+  </head>
+  <body class="bg-light">
+  <a th:href="@{/manageusers}">
+    <button class="MenuButton">Back To Manage Users</button> 
+</a>
+    <header>
+      <a th:href="@{/}">GAZEBO HQ</a>
+        <button>
+          <img th:src="@{/Images/avatar.png}" alt="Avatar" class="avatar">
+        </button>
+      </header>
+    <form class="col-md-2 order-md-1 py-5 text-center d-block mx-auto mb-4" th:action="@{/createpassword}" method="post" th:object="${passwordForm}">
+        <div class="card-header bg-info"><b>Editing Roles</b></div>
+        <div class="card-body border border-info border-color-subtle">
+
+          <div th:if="${#fields.hasErrors('username')}"><p th:text="${#fields.errors('username')}"></p></div>
+          <div class="card-text col-md-6 mb-2"><label for="username">Username:</label> <input type="text" name="username" required/></div>
+
+          <div th:if="${#fields.hasErrors('oldPassword')}"><p th:text="${#fields.errors('oldPassword')}"></p></div>
+          <div class="card-text col-md-6 mb-2"><label for="oldPassword" aria-labelledby="passwordHelpInline">Current Password:</label> <input type="password" id="oldPassword" name="oldPassword" th:field="*{oldPassword}"/></div>
+			<span id="passwordHelpInline" class="form-text">
+              If you forgot your password, leave section blank to reset it.
+            </span>
+          <div th:if="${#fields.hasErrors('newPassword')}"><p th:text="${#fields.errors('newPassword')}"></p></div>
+          <div class="card-text col-md-6 mb-2"><label for="newPassword" aria-labelledby="passwordHelpInline">New Password:</label> <input type="password" id="newPassword" name="newPassword" th:field="*{newPassword}" required /></div>
+          <div th:if="${successMessage}"><p th:text="${successMessage}"></p></div>
+          <button type="submit" class="btn btn-primary">Change Role</button>
+        </div>
+  </form>
+  </body>
+</html>

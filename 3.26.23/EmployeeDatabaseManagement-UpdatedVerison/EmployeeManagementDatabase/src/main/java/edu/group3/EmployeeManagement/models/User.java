@@ -16,6 +16,7 @@ import jakarta.persistence.JoinColumn;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.apache.logging.log4j.util.StringBuilderFormattable;
@@ -80,8 +81,18 @@ public class User {
 	 }
 	 
 	 public void addRole(Role role) {
-		 this.roles.add(role);
-	 }
+		    Optional<Role> existingRole = roles.stream()
+		            .filter(r -> r.getId() == role.getId())
+		            .findFirst();
+		    if (existingRole.isPresent()) {
+		        roles.remove(existingRole.get());
+		    }
+		    roles.add(role);
+		}
+	 
+		/*
+		 * public void addRole(Role role) { this.roles.add(role); }
+		 */
 	
 	public int getId() {
 		return id;
