@@ -94,8 +94,10 @@ public class MainController {
 				}
 				
 				@GetMapping(value="/payrollUser")
-				public String payrolladmin()
+				public ModelAndView payrolladmin()
 				{
-					return "payrollUser";
+					ModelAndView myUser = new ModelAndView("payrollUser");
+					myUser.addObject("user", uRepo.findAll());
+					return myUser;
 				}
 }

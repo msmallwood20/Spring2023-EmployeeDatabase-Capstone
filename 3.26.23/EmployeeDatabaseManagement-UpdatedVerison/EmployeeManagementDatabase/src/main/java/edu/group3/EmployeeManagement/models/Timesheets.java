@@ -30,6 +30,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Timesheets {
 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	@Column(name = "id")
 	private long id;
@@ -43,19 +44,39 @@ public class Timesheets {
 	@Column(name = "lastName")
 	private String lastName;
 	
-	@Column(name = "payperiod_week")
-	private String payperiod_week;
+	@Column(name = "payperiodWeek")
+	private String payperiodWeek;
+	
+	@Column(name = "hourlyWage")
+	private String hourlyWage;
+	
+	@Column(name = "hoursWorked")
+	private String hoursWorked;
+	
+	@Column(name = "monthPay")
+	private String monthPay;
+	
+	@Column(name = "startTime")
+	private String startTime;
+	
+	@Column(name = "endTime")
+	private String endTime;
 	
 	public Timesheets()
 	{
 		
 	}
 	
-	public Timesheets(String firstName, String lastName, String username, String payperiod_week) {
+	public Timesheets(String firstName, String lastName, String username, String payperiodWeek, String hourlyWage, String hoursWorked, String monthPay, String endTime, String startTime) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.username = username;
-		this.payperiod_week = payperiod_week;
+		this.payperiodWeek = payperiodWeek;
+		this.hourlyWage = hourlyWage;
+		this.hoursWorked = hoursWorked;
+		this.monthPay = monthPay;
+		this.startTime = startTime;
+		this.endTime = endTime;
 	}
 	
 	  	public long getId() {
@@ -83,19 +104,57 @@ public class Timesheets {
 		  }
 		  
 		  public String getLastName() {
-			    return firstName;
+			    return lastName;
 			  }
 
 		  public void setLastName(String lastName) {
 			    this.lastName = lastName;
 			  }
 
-		  public String getpayperiod_week() {
-		    return payperiod_week;
+		  public String getPayperiodWeek() {
+		    return payperiodWeek;
 		  }
 
-		  public void setpayperiod_week(String payperiod_week) {
-		    this.payperiod_week = payperiod_week;
+		  public void setPayperiodWeek(String payperiodWeek) {
+		    this.payperiodWeek = payperiodWeek;
 		  }
+		  
+		  public String getHourlyWage() {
+			    return hourlyWage;
+			  }
+
+		  public void setHourlyWage(String hourlyWage) {
+			    this.hourlyWage = hourlyWage;
+			  }
+		  public String getHoursWorked() {
+			    return hoursWorked;
+			  }
+
+		  public void setHoursWorked(String hoursWorked) {
+			    this.hoursWorked = hoursWorked;
+			  }
+		  public String getMonthPay() {
+			    return monthPay;
+			  }
+
+		  public void setMonthPay(String monthPay) {
+			    this.monthPay = monthPay;
+			  }
+		  
+		  public String getStartTime() {
+			    return startTime;
+			  }
+
+		  public void setStartTime(String startTime) {
+			    this.startTime = startTime;
+			  }
+		  
+		  public String getEndTime() {
+			    return endTime;
+			  }
+
+		  public void setEndTime(String endTime) {
+			    this.endTime = endTime;
+			  }
 }
 
