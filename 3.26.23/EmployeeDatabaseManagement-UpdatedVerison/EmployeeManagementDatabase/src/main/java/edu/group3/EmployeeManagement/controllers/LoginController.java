@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import edu.group3.EmployeeManagement.models.Role;
 import edu.group3.EmployeeManagement.models.User;
+import edu.group3.EmployeeManagement.repository.RoleRepository;
 import edu.group3.EmployeeManagement.repository.UserRepository;
 import edu.group3.EmployeeManagement.service.MyUserDetailsService;
 import edu.group3.EmployeeManagement.service.UserService;
@@ -26,6 +28,9 @@ public class LoginController {
 	
     @Autowired
     UserRepository userRepository;
+    
+    @Autowired
+    RoleRepository roleRepository;
     
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -97,6 +102,10 @@ public class LoginController {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String encodedPassword = passwordEncoder.encode(user.getPassword());
 		user.setPassword(encodedPassword);
+		
+		Role roleUser = roleRepository.findByName("User");
+		user.addRole(roleUser);
+		
 		userRepository.save(user);
 	
 		return "registrationsucces";
