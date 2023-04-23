@@ -62,25 +62,6 @@ public class User {
 	 
 	 private Set<Role> roles = new HashSet<>();
 	 
-	 @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	 @JoinTable(
-	    	  name="user_timesheet",
-	    	  joinColumns={@JoinColumn(name="USER_NAME", referencedColumnName="username")},
-	    	  inverseJoinColumns={@JoinColumn(name="TIMESHEET_USER", referencedColumnName="username")})
-	 
-	 List<Timesheets> timesheets = new ArrayList<>();
-	 
-	 
-	 public List<Timesheets> geTimesheets()
-	 {
-		 return timesheets;
-	 }
-	 
-	 public void setTimesheets(List<Timesheets> timesheets)
-	 {
-		 this.timesheets = timesheets;
-	 }
-	 
 	 public void addRole(Role role) {
 		 this.roles.add(role);
 	 }
