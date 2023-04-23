@@ -23,7 +23,7 @@
     <p>Email: <span th:text="${#authentication.getPrincipal().getEmail}"></span></p> <br>
     <p>Address: (Will populate user address)</p> <br>
     <p>Phone Number: (Will populate user phone number)</p>
-    <p>User's Role Permission:</p>
+    <p>User's Role Permission:<span th:text="${#authentication.getPrincipal().getAuthorities()}">User Role</span></p>
 </div>
 <div id="forms">
 <form action="text">
