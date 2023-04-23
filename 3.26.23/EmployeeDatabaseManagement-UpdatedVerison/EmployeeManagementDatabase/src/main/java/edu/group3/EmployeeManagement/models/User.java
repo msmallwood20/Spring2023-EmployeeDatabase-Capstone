@@ -64,12 +64,10 @@ public class User {
 	 
 	 @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	 @JoinTable(
-	    	  name="user_timesheet",
-	    	  joinColumns={@JoinColumn(name="USER_NAME", referencedColumnName="username")},
-	    	  inverseJoinColumns={@JoinColumn(name="TIMESHEET_USER", referencedColumnName="username")})
-	 
+       name="user_sheet",
+       joinColumns={@JoinColumn(name="USER_USERNAME", referencedColumnName="username")},
+       inverseJoinColumns={@JoinColumn(name="SHEET_USERNAME", referencedColumnName="username")})
 	 List<Timesheets> timesheets = new ArrayList<>();
-	 
 	 
 	 public List<Timesheets> geTimesheets()
 	 {

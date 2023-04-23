@@ -49,17 +49,20 @@
 				<td th:text="${user.id}" />				
 				<td th:text="${user.firstName}" />
 				<td th:text="${user.lastName}" />
+				<td th:each="timesheets : ${user.timesheets}" th:text="${timesheets.hourlyWage}" />
+				<td th:each="timesheets : ${user.timesheets}" th:text="${timesheets.hoursWorked}" />
+				<td th:each="timesheets : ${user.timesheets}" th:text="${timesheets.monthPay}" />
 			 </tr>
             </tbody>
             <!--Grabs everything from that format and totals it-->
             <tfoot id="Summery" class="fw-bold text-dark">
               <tr>
-                <th scope="row">Summery</th>
+                <th scope="row">Summary</th>
                 <td class="text-success">Max : <span id="Max-wage">$00</span></td>
                 <td class="text-danger">Min : <span id="Min-wage">$00</span></td>
                 <td class="text-primary">Avg : <span id="Avg-wage">$00</span></td>
                 <td><span id="Total-WH">0000 h</span></td>
-                <td><span id="Total-pay">$ 0000 </span></td>
+                <td><span id="Total-pay">$</span></td>
               </tr>
             </tfoot>
           </table>

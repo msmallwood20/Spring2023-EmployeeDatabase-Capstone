@@ -5,7 +5,6 @@ insert into user values(1, 'mayasmallwood41@gmail.com', 'Maya', 'Maya Smallwood'
 insert into user values(2, '', 'Paul', 'Paul Schlabach', 'Schlabach', '', '', '', 'pms1006');
 insert into user values(3, '', 'Bradon', 'Bradon Walters', 'Walters', '', '', '', 'bdw1006');
 insert into user values(4, 'sam.thangiah@sru.edu', 'Dr.Sam', 'Dr.Sam Thangiah', 'Thangiah', '', '', '', 'sam488');
-
 insert into user values(5, '', 'Franics', 'Franics Tube', 'Tube', '', '', '', 'fra488');
 insert into user values(6, '', 'Alex', 'Alex Schema', 'Schema', '', '', '', 'alx488');
 
