@@ -6,6 +6,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="wdith=device-width, initial-scale=1, shrink-to-fit=no">
 
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
         <link href="css/manageusers.css" type="text/css" rel="stylesheet">
     </head>
     <header>
@@ -20,6 +22,68 @@
            </div>
 	</div>	
     </header>
+    
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title text-uppercase mb-0">Manage Users</h5>
+            </div>
+            <div class="table-responsive">
+                <table class="table no-wrap user-table mb-0">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="border-0 text-uppercase font-medium pl-4">#</th>
+                      <th scope="col" class="border-0 text-uppercase font-medium">First Name</th>
+                      <th scope="col" class="border-0 text-uppercase font-medium">Last Name</th>
+                      <th scope="col" class="border-0 text-uppercase font-medium">Username</th>
+                      <th scope="col" class="border-0 text-uppercase font-medium">Email</th>
+                      <th scope="col" class="border-0 text-uppercase font-medium">Role</th>
+                      <th scope="col" class="border-0 text-uppercase font-medium">Manage</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr th:each="user: ${user}">
+                    <!-- First name, Last name, username, email, role -->
+                      <td class="pl-4"></td>
+                      <td>
+                          <h5 class="font-medium mb-0" th:text="${user.firstName}"></h5>
+                      </td>
+                      <td>
+                          <h5 class="font-medium mb-0" th:text="${user.lastName}"></h5>
+                      </td>
+                      <td>
+                          <span class="text-muted" th:text="${user.username}"></span><br>
+                      </td>
+                      <td>
+                          <span class="text-muted" th:text="${user.email}"></span><br>
+                      </td>
+                      <td>
+                          <span class="text-muted" th:each="role : ${user.roles}" th:text="${role.name}"></span><br>
+                      </td>
+                      <td>
+                        <select class="form-control category-select" id="exampleFormControlSelect1">
+                          <option>Admin</option>
+                          <option>User</option>
+                        </select>
+                      </td>
+                      <td>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle"><i class="fa fa-key"></i> </button>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-trash"></i> </button>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-edit"></i> </button>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-upload"></i> </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>    
+    
+<!--    
 <body>
     <div id="PageHeader">
         <p>Manage Users</p>
@@ -47,6 +111,7 @@
 			</tr>
 		</tbody>
 	</table>
-</body>	
+</body>
 </div>
+-->
 </html>    
