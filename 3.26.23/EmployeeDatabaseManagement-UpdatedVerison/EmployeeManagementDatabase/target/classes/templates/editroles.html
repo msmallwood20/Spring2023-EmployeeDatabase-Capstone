@@ -20,22 +20,18 @@
           <img th:src="@{/Images/avatar.png}" alt="Avatar" class="avatar">
         </button>
       </header>
-    <form class="col-md-2 order-md-1 py-5 text-center d-block mx-auto mb-4" th:action="@{/createpassword}" method="post" th:object="${passwordForm}">
+      <h1>Role Edit Form</h1>
+    <form class="col-md-2 order-md-1 py-5 text-center d-block mx-auto mb-4" th:action="@{/editroles}" method="post" th:object="${roleForm}">
         <div class="card-header bg-info"><b>Editing Roles</b></div>
         <div class="card-body border border-info border-color-subtle">
-
-          <div th:if="${#fields.hasErrors('username')}"><p th:text="${#fields.errors('username')}"></p></div>
           <div class="card-text col-md-6 mb-2"><label for="username">Username:</label> <input type="text" name="username" required/></div>
 
-          <div th:if="${#fields.hasErrors('oldPassword')}"><p th:text="${#fields.errors('oldPassword')}"></p></div>
-          <div class="card-text col-md-6 mb-2"><label for="oldPassword" aria-labelledby="passwordHelpInline">Current Password:</label> <input type="password" id="oldPassword" name="oldPassword" th:field="*{oldPassword}"/></div>
-			<span id="passwordHelpInline" class="form-text">
-              If you forgot your password, leave section blank to reset it.
-            </span>
-          <div th:if="${#fields.hasErrors('newPassword')}"><p th:text="${#fields.errors('newPassword')}"></p></div>
-          <div class="card-text col-md-6 mb-2"><label for="newPassword" aria-labelledby="passwordHelpInline">New Password:</label> <input type="password" id="newPassword" name="newPassword" th:field="*{newPassword}" required /></div>
-          <div th:if="${successMessage}"><p th:text="${successMessage}"></p></div>
-          <button type="submit" class="btn btn-primary">Change Role</button>
+        <label for="role">Role:</label>
+        	<select th:name="rolechange">
+        		<option value="USER">USER</option>
+        		<option value="ADMIN">ADMIN</option>
+        	</select>
+          <button type="submit" value="Submit" class="btn btn-primary">Change Role</button>
         </div>
   </form>
   </body>

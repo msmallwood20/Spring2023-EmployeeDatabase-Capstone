@@ -90,9 +90,16 @@ public class User {
 		    roles.add(role);
 		}
 	 
-		/*
-		 * public void addRole(Role role) { this.roles.add(role); }
-		 */
+	 public String getRole() {
+		    StringBuilder rolesBuilder = new StringBuilder();
+		    for (Role role : roles) {
+		        if (rolesBuilder.length() > 0) {
+		            rolesBuilder.append(", ");
+		        }
+		        rolesBuilder.append(role.getName());
+		    }
+		    return rolesBuilder.toString();
+		}
 	
 	public int getId() {
 		return id;
