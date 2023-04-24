@@ -85,9 +85,16 @@ public class MainController {
 			    }
 
 			    @PostMapping("/editroles")
-			    public String processUserForm() {
+			    public String processUserForm(@ModelAttribute("roleForm") User useredit, BindingResult bindingResult, Model model)
+			    {
+			    	String username = useredit.getUsername();
+				    User user = uRepo.findByUsername(username);
 
-			        return "redirect:/editroles/success";
+			    	
+					Role newRole = rRepo.findByName("User");
+			    	user.addRole(newRole);
+			    	uRepo.save(user);
+			        return "editroles";
 			    }
 			
 				//Adding Users-Admin Access Only
