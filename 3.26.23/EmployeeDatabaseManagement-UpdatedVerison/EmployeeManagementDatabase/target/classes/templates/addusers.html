@@ -30,7 +30,7 @@
           <h1>When Uploading a Excel from the blanked downloaded one, please make sure you rename it.</h1>
           		<br>         		
 				<form method="post" action="/api/excel/uploadUserSheet" enctype="multipart/form-data">
-				  <input type="file" name="file">
+				  <input required type="file" name="file">
 				  <button type="submit">Upload</button>
 				</form>
           		<br>
