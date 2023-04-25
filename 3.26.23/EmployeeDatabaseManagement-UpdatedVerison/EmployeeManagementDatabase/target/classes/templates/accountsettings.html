@@ -21,8 +21,8 @@
 <div id="infobox" > <p id="PersonalInfo"><u>  Personal Information </u> </p>
     <p>Name: <span th:text="${#authentication.getPrincipal().getFirstName} + ' ' + ${#authentication.getPrincipal().getLastName}"></span></p> <br>
     <p>Email: <span th:text="${#authentication.getPrincipal().getEmail}"></span></p> <br>
-    <p>Address: (Will populate user address)</p> <br>
-    <p>Phone Number: (Will populate user phone number)</p>
+    <p>Address: 232 West Asher St</p> <br>
+    <p>Phone Number: 123-534-4323</p>
     <p>User's Role Permission:<span th:text="${#authentication.getPrincipal().getAuthorities()}">User Role</span></p>
 </div>
 <div id="forms">

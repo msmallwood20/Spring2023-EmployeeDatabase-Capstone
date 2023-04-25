@@ -41,7 +41,7 @@
           <h1>Please Upload a Excel <b>.xlsx</b> file, to upload your TimeSheet.</h1>
           		<br>
 				<form method="POST" action="/api/excel/upload" enctype="multipart/form-data">
-				  <input type="file" name="file">
+				  <input required type="file" name="file">
 				  <button type="submit">Upload</button>
 				</form>
           		<br>

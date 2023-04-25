@@ -34,7 +34,7 @@
         <!--Display's Employee Info-->
         <div class="w3-container">
           <h2><span th:text="${#authentication.getPrincipal().getFirstName} + ' ' + ${#authentication.getPrincipal().getLastName}">FirstName LastName</span></h2>
-          <p><i></i>Designer</p>
+          <p><i></i>Developer</p>
           <p><i></i>Slippery Rock, PA</p>
           <p th:text="${#authentication.getPrincipal().getEmail}"><i></i></p>
           <p><i></i>122-443-5534</p>
@@ -55,7 +55,7 @@
         <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Regular Payroll</h2>
         <div class="w3-container">
           <h5 class="w3-opacity">Pay Period 1</h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"/></i></h6>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"/></i>April 22 2023 - May 05 2023</h6>
 
           <hr>
         </div>
@@ -66,8 +66,8 @@
           <hr>
         </div>
         <div class="w3-container">
-          <h5 class="w3-opacity"><b>Total Payroll Cost</b></h5>
-          <h6 class="w3-text-black">$1,798.10</h6>
+          <h5 class="w3-opacity"><b>Total Monthly Pay</b></h5>
+          <h6 class="w3-text-black">$1,250</h6>
       </div>
       </div>
 
