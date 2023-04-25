@@ -1,12 +1,12 @@
 insert into role values(1, 'USER');
 insert into role values(2, 'ADMIN');
 
-insert into user values(1, 'mayasmallwood41@gmail.com', 'Maya', 'Maya Smallwood', 'Smallwood', '', '', '', 'mns1013');
-insert into user values(2, '', 'Paul', 'Paul Schlabach', 'Schlabach', '', '', '', 'pms1006');
-insert into user values(3, '', 'Bradon', 'Bradon Walters', 'Walters', '', '', '', 'bdw1006');
+insert into user values(1, 'mns1013@sru.edu', 'Maya', 'Maya Smallwood', 'Smallwood', '', '', '', 'mns1013');
+insert into user values(2, 'pms1006@sru.edu', 'Paul', 'Paul Schlabach', 'Schlabach', '', '', '', 'pms1006');
+insert into user values(3, 'bdw1006@sru.edu', 'Bradon', 'Bradon Walters', 'Walters', '', '', '', 'bdw1006');
 insert into user values(4, 'sam.thangiah@sru.edu', 'Dr.Sam', 'Dr.Sam Thangiah', 'Thangiah', '', '', '', 'sam488');
-insert into user values(5, '', 'Franics', 'Franics Tube', 'Tube', '', '', '', 'fra488');
-insert into user values(6, '', 'Alex', 'Alex Schema', 'Schema', '', '', '', 'alx488');
+insert into user values(5, 'fra488@sru.edu', 'Franics', 'Franics Tube', 'Tube', '', '', '', 'fra488');
+insert into user values(6, 'alx488@sru.edu', 'Alex', 'Alex Schema', 'Schema', '', '', '', 'alx488');
 
 insert into timesheets values('1','5:00 PM','Maya','10.50','40','Smallwood','$400.20','4/24/2023-5/06/2023','8:00 AM','mns1013');
 insert into timesheets values('2','5:00 PM','Paul','10.50','40','Schlabach','$400.20','4/24/2023-5/06/2023','8:00 AM','pms1006');
@@ -26,3 +26,4 @@ insert into user_sheet values('bdw1006', 'bdw1006');
 insert into user_sheet values('pms1006', 'pms1006');
 insert into user_sheet values('fra488', 'fra488');
 insert into user_sheet values('alx488', 'alx488');
+insert into user_sheet values('nsa488', 'nsa488');

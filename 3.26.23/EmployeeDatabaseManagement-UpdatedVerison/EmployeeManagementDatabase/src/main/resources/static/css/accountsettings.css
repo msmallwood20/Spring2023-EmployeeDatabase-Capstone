@@ -51,10 +51,18 @@ header {
     border-style: solid;
     margin-top: 100px;
     padding-left: 10px;
-    float: left;
-    padding-right: 50px ;
-    margin-left: 15px;
+    padding-right: 10px ;
+    margin-left: 600px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 100%;
+    float: center;
+    text-align: center;
+    
+    width: 30%;
+    padding-top: 7%;
+    padding-bottom:7%;
+    margin-top: 10px;
+    margin-right: 25px;
+    border-radius: 25px;
     
   }
